@@ -1,0 +1,56 @@
+.App {
+  display: grid;
+  grid-template-columns: 0.2fr 2px 1.2fr 2px 0.7fr;
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+.App {
+  background-color: #000000db;
+  height: 100vh;
+}
+
+.Splitter {
+  cursor: col-resize;
+  background-color: #a04343;
+  position: relative;
+  z-index: 99;
+}
+
+.Splitter.draggable {
+  border: 3px solid #a04343;
+}
+
+.Menu {
+  padding: 0 15px;
+  color: white;
+  overflow: auto;
+  font-size: 14px;
+  min-width: 150px;
+}
+
+.Menu h4 {
+  text-align: center;
+}
+
+.Menu h5 {
+  color: grey;
+  margin-bottom: 8px;
+}
+
+.ScenarioSelector {
+  display: flex;
+  white-space: nowrap;
+  margin: 10px 0;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.Main {
+  position: relative;
+}
+
+.Code {
+  min-width: 150px;
+}
+

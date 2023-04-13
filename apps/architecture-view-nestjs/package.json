@@ -1,0 +1,109 @@
+{
+  "name": "architecture-view-nestjs",
+  "publisher": "archsense",
+  "displayName": "Architecture View NestJS",
+  "description": "The architecture view for NestJS application",
+  "version": "0.5.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ArchSense/archsense-mono"
+  },
+  "bugs": {
+    "url": "https://github.com/ArchSense/archsense-mono/issues"
+  },
+  "preview": true,
+  "icon": "images/icon-color.png",
+  "keywords": [
+    "architecture",
+    "visualization",
+    "nestjs"
+  ],
+  "engines": {
+    "vscode": "^1.76.0"
+  },
+  "categories": [
+    "Visualization"
+  ],
+  "sponsor": {
+    "url": "https://ko-fi.com/archsense"
+  },
+  "activationEvents": [
+    "onLanguage:typescript"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "archsense.showArchitecture",
+        "title": "Show architecture"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "webpack",
+    "watch": "webpack --watch",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "compile-tests": "tsc -p . --outDir out",
+    "pretest": "npm run compile && npm run compile-tests",
+    "lint": "eslint ./src",
+    "format": "prettier --write \"{src,test}/**/*.{ts,tsx}\" \"*.md\"",
+    "test:unit": "node ./out/test/runTest.js",
+    "test:e2e": "npx wdio run ./wdio.conf.ts",
+    "test": "npm run test:unit && npm run test:e2e",
+    "deploy": "vsce publish"
+  },
+  "devDependencies": {
+    "@types/dagre": "^0.7.48",
+    "@types/glob": "^8.1.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "16.x",
+    "@types/react": "^18.0.31",
+    "@types/react-dom": "^18.0.11",
+    "@types/vscode": "^1.76.0",
+    "@typescript-eslint/eslint-plugin": "^5.57.0",
+    "@typescript-eslint/parser": "^5.57.0",
+    "@vscode/test-electron": "^2.3.0",
+    "@vscode/vsce": "^2.18.0",
+    "@wdio/cli": "^8.6.9",
+    "@wdio/local-runner": "^8.6.9",
+    "@wdio/mocha-framework": "^8.6.8",
+    "@wdio/spec-reporter": "^8.6.8",
+    "babel-loader": "^9.1.2",
+    "css-loader": "^6.7.3",
+    "eslint": "^8.36.0",
+    "eslint-plugin-react": "^7.32.2",
+    "glob": "^8.1.0",
+    "html-loader": "^4.2.0",
+    "mocha": "^10.2.0",
+    "prettier": "^2.8.7",
+    "style-loader": "^3.3.2",
+    "ts-loader": "^9.4.2",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.5",
+    "wdio-vscode-service": "^5.0.0",
+    "webpack": "^5.76.3",
+    "webpack-cli": "^5.0.1"
+  },
+  "dependencies": {
+    "@archsense/scout": "^0.2.2",
+    "@rottitime/react-hook-message-event": "^1.0.10",
+    "@vscode/extension-telemetry": "^0.7.7",
+    "@vscode/webview-ui-toolkit": "^1.2.2",
+    "dagre": "^0.8.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "reactflow": "^11.7.0",
+    "use-debounce": "^9.0.3"
+  },
+  "prettier": {
+    "bracketSpacing": true,
+    "printWidth": 100,
+    "requirePragma": false,
+    "semi": true,
+    "singleQuote": true,
+    "tabWidth": 2,
+    "trailingComma": "all",
+    "useTabs": false
+  }
+}

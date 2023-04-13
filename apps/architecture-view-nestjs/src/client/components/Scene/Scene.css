@@ -1,0 +1,12 @@
+.react-flow__minimap {
+  background-color: #404040 !important;
+}
+
+.react-flow__controls-button {
+  background-color: #aaaaaa !important;
+  border-bottom-color: #aaaaaa !important;
+}
+
+.react-flow__controls-button.selected {
+  opacity: 0.8;
+}

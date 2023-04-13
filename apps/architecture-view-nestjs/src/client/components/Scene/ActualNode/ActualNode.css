@@ -1,0 +1,21 @@
+.ActualNode {
+  border: 3px solid transparent;
+  border-radius: 5px;
+  padding: 10px 15px;
+}
+.ActualNode.selected {
+  border: 3px solid rgb(62, 197, 255);
+}
+
+.ModuleNode {
+  width: 500px;
+  height: 800px;
+  border-color: white;
+}
+
+.ActualNode .react-flow__handle-top {
+  top: -7px;
+}
+.ActualNode .react-flow__handle-bottom {
+  bottom: -7px;
+}

@@ -1,0 +1,49 @@
+.OmniBarContainer {
+  height: 50px;
+  position: absolute;
+  width: 75%;
+  background: #303134;
+  left: 15%;
+  top: 15px;
+  border: 1px solid transparent;
+  border-radius: 24px;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.OmniBarContainer:hover {
+  box-shadow: 0px 3px 0 3px rgb(23 23 23 / 24%);
+}
+
+.OmniBarSearch {
+  background: transparent;
+  outline: none;
+  border: none;
+  width: 40%;
+  color: #e8eaed;
+  margin-left: 15px;
+  font-size: 16px;
+}
+
+.OmniBarControls {
+  padding: 0 5px;
+  height: 100%;
+  border-left: 1px solid grey;
+  display: flex;
+  align-items: center;
+}
+
+.OmniBarControl {
+  background: transparent;
+  outline: none;
+  border: none;
+  margin: 0 8px;
+  padding: 0;
+  line-height: 9px;
+}
+.OmniBarControl:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}

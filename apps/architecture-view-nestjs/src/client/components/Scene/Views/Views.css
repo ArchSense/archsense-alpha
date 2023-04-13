@@ -1,0 +1,9 @@
+.views {
+  left: 40px;
+  display: flex;
+}
+
+.views .react-flow__controls-button {
+  width: auto;
+  height: auto;
+}
