@@ -27,6 +27,9 @@ jobs:
       matrix:
         os: [macos-latest, ubuntu-latest, windows-latest]
     runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        working-directory: apps/architecture-view-nestjs
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
