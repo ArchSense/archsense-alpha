@@ -4,16 +4,17 @@ on:
   push:
   pull_request:
     paths:
-      - 'apps/scout/**'
+      - apps/scout/**
     branches:
       - main
+
+defaults:
+  run:
+    working-directory: apps/scout
 
 jobs:
   test:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: apps/scout
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3

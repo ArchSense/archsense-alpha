@@ -1,4 +1,4 @@
-import { readFileSync } from 'fs';
+import { readFileSync, readdirSync } from 'fs';
 import path from 'path';
 import { Decorator, MethodDeclaration, Project, SourceFile } from 'ts-morph';
 import ts from 'typescript';
@@ -17,13 +17,12 @@ const getClosestTsConfigFile = (
   let currentPath = projectRootDirectoryPath;
   while (current < MAX_ATTEMPTS) {
     try {
+      console.log(readdirSync(currentPath));
       const tsConfigFilePath = path.resolve(currentPath, TS_CONFIG_FILE_NAME);
-      console.log(tsConfigFilePath);
       const res = readFileSync(tsConfigFilePath, { encoding: 'utf-8' });
       const { config } = ts.parseConfigFileTextToJson(TS_CONFIG_FILE_NAME, res);
       return { content: config, path: tsConfigFilePath };
     } catch (error) {
-      console.log(error);
       currentPath = path.resolve(currentPath, '../');
       current++;
     }
