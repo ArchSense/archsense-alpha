@@ -18,4 +18,5 @@ jobs:
         with:
           node-version: 18
       - run: npm ci
+      - run: cd ../guinea-pig-nestjs | ls -al
       - run: npm run test
