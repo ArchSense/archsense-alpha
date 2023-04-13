@@ -77,6 +77,8 @@ export const buildStaticInsights = async (
 ): Promise<StaticDependenciesTree> => {
   const graph: StaticDependenciesTree = new Map();
 
+  console.log(projectRootFilePath);
+
   const { content: tsConfig, path: tsConfigFilePath } = getClosestTsConfigFile(
     path.parse(projectRootFilePath).dir,
   );

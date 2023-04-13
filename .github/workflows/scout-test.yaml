@@ -2,11 +2,8 @@ name: 'Scout Test'
 
 on: 
   push:
-  pull_request:
     paths:
       - apps/scout/**
-    branches:
-      - main
 
 defaults:
   run:
