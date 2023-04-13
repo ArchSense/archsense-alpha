@@ -80,7 +80,7 @@ export const buildStaticInsights = async (
   console.log(projectRootFilePath);
 
   const { content: tsConfig, path: tsConfigFilePath } = getClosestTsConfigFile(
-    path.parse(projectRootFilePath).dir,
+    path.resolve(projectRootFilePath, '../'),
   );
 
   const project = new Project({
