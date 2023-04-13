@@ -17,6 +17,7 @@ const getClosestTsConfigFile = (
   let currentPath = projectRootDirectoryPath;
   while (current < MAX_ATTEMPTS) {
     try {
+      console.log(currentPath);
       const tsConfigFilePath = path.resolve(currentPath, TS_CONFIG_FILE_NAME);
       const res = readFileSync(tsConfigFilePath, { encoding: 'utf-8' });
       const { config } = ts.parseConfigFileTextToJson(TS_CONFIG_FILE_NAME, res);

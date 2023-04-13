@@ -3,10 +3,10 @@ name: 'VS Code Extension Test'
 on: 
   push:
   pull_request:
-    branches:
-      - main
     paths:
       - 'apps/architecture-view-nestjs/**'
+    branches:
+      - main
 
 jobs:
   build:

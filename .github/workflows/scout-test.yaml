@@ -3,10 +3,10 @@ name: 'Scout Test'
 on: 
   push:
   pull_request:
-    branches:
-      - main
     paths:
       - 'apps/scout/**'
+    branches:
+      - main
 
 jobs:
   test:
