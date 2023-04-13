@@ -6,10 +6,6 @@ Visualize the architecture of your NestJs application.
   <a href="https://marketplace.visualstudio.com/items?itemName=archsense.architecture-view-nestjs">
     <img src="https://img.shields.io/badge/Install-VSCode%20Marketplace-blue" alt="Marketplace Badge"/>
   </a>
-  <a href="https://marketplace.visualstudio.com/items?itemName=archsense.architecture-view-nestjs">
-    <img src="https://github.com/archsense/archsense-mono/actions/workflows/vscode-extension-test.yaml/badge.svg">
-  </a>
-  <br />
   <a href="https://ko-fi.com/archsense" target="_blank">
     <img src="https://img.shields.io/badge/Donate-ff3f59.svg"/>
   </a>
