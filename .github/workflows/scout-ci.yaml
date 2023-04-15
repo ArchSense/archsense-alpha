@@ -7,18 +7,12 @@ on:
       - main
   pull_request:
 
-defaults:
-  run:
-    working-directory: apps/scout
-
 jobs:
-  'show-structure':
-    runs-on: ubuntu-latest
-    steps:
-      - run: cd ../ | ls -al
-      - run: cd ../guinea-pig-nestjs | ls -al
   test:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: apps/scout
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
