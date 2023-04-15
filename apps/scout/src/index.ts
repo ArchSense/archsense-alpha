@@ -5,6 +5,8 @@ import { getValidConfig } from './services/config';
 import { Config } from './types/config';
 import { AnalysisResult } from './types/output';
 import { Path } from './types/path';
+import path from 'path';
+import { readdirSync } from 'fs';
 
 export * from './types';
 
@@ -17,6 +19,16 @@ type Params = {
 export class Scout {
   constructor(private params: Params) {
     this.validateParams();
+    this.debugCI();
+  }
+
+  private debugCI() {
+    const rootContent = readdirSync(path.resolve(process.cwd(), '../'))
+    console.log(rootContent);
+    if (rootContent.includes('guinea-pig-nestjs')) {
+      const gp = readdirSync(path.resolve(process.cwd(), '../guinea-pig-nestjs'));
+      console.log(gp);
+    }
   }
 
   private validateParams() {
