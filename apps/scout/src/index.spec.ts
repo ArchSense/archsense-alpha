@@ -6,7 +6,7 @@ describe('NestJs Scout', () => {
   it('should parse guinea-pig project', async () => {
     const nestjsScout = new Scout({
       framework: 'nestjs',
-      rootPath: '../../../guinea-pig-nestjs',
+      rootPath: path.join(__dirname, '../../guinea-pig-nestjs'),
     });
     const res = await nestjsScout.analyze();
     expect(res).toEqual(expectedResults);
