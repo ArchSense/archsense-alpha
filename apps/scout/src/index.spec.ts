@@ -15,6 +15,6 @@ describe('NestJs Scout', () => {
       rootPath: path.join(__dirname, '../../guinea-pig-nestjs'),
     });
     const res = await nestjsScout.analyze();
-    expect(normalizePathsForComparison(res)).toEqual(normalizePathsForComparison(expectedResults));
+    expect(normalizePathsForComparison(res)).toEqual(expectedResults);
   });
 });
