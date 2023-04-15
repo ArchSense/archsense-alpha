@@ -1,8 +1,11 @@
 import { useCallback, useEffect } from 'react';
 import ReactFlow, {
   Background,
+  Connection,
   Controls,
+  Edge,
   MiniMap,
+  Node,
   ReactFlowProvider,
   useEdgesState,
   useNodesState,
@@ -20,7 +23,6 @@ import {
   initModuleNodes,
 } from './initialElements';
 import { buildPlannedNode } from './Node/Node';
-import OmniBar from './OmniBar/OmniBar';
 import PlannedNode from './PlannedNode/PlannedNode';
 import './Scene.css';
 import useAutoLayout from './useAutoLayout';
@@ -39,9 +41,9 @@ const DEFAULT_DIRECTION = 'TB';
 
 interface SceneProps {
   data: any;
-  onNodeEnter: Function;
-  onNodeSelect: Function;
-  onViewChange: Function;
+  onNodeEnter: (nodeId: string) => void;
+  onNodeSelect: (nodeId: string) => void;
+  onViewChange: (view: Levels) => void;
   view: Levels;
 }
 
@@ -51,7 +53,7 @@ const Scene = ({ data, onNodeEnter, onNodeSelect, onViewChange, view }: ScenePro
   const [nodes, setNodes, onNodesChange] = useNodesState([]);
   const [edges, setEdges, onEdgesChange] = useEdgesState([]);
 
-  const getInitFunctions = (view) => {
+  const getInitFunctions = (view: Levels) => {
     switch (view) {
       case Levels.Components:
         return {
@@ -77,6 +79,7 @@ const Scene = ({ data, onNodeEnter, onNodeSelect, onViewChange, view }: ScenePro
     setEdges(edges(data));
   }, [view, setNodes, setEdges, data]);
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const onNodeAddHandler = useCallback(() => {
     const name = window.prompt('Enter name');
     if (!name) {
@@ -88,21 +91,24 @@ const Scene = ({ data, onNodeEnter, onNodeSelect, onViewChange, view }: ScenePro
   }, [nodes, setNodes]);
 
   const onEdgeAddHandler = useCallback(
-    ({ source, target }) => {
-      setEdges([...edges, buildEdge(source, target)]);
+    ({ source, target }: Connection) => {
+      const newEdge = buildEdge(source, target);
+      if (newEdge) {
+        setEdges([...edges, ]);
+      }
     },
     [edges, setEdges],
   );
 
   const onDoubleClickHandler = useCallback(
-    (_, node) => {
+    (_: any, node: Node) => {
       onNodeEnter && onNodeEnter(node.id);
     },
     [onNodeEnter],
   );
 
   const highlightEdges = useCallback(
-    (selectedNode) => {
+    (selectedNode: Node) => {
       setEdges((edges) =>
         edges.map((edge) => ({
           ...edge,
@@ -118,17 +124,16 @@ const Scene = ({ data, onNodeEnter, onNodeSelect, onViewChange, view }: ScenePro
   }, [setEdges]);
 
   const onSelectionChangeHandler = useCallback(
-    ({ nodes }) => {
+    ({ nodes }: {nodes: Node[], edges: Edge[]}) => {
       const selectedNode = nodes[0];
       selectedNode ? highlightEdges(selectedNode) : removeHighlightEdges();
-      onNodeSelect && onNodeSelect(selectedNode);
+      selectedNode && onNodeSelect && onNodeSelect(selectedNode.id);
     },
     [highlightEdges, removeHighlightEdges, onNodeSelect],
   );
 
   return (
     <>
-      <OmniBar onAdd={onNodeAddHandler} />
       <ReactFlow
         nodes={nodes}
         edges={edges}

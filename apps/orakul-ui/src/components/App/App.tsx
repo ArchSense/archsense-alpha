@@ -22,25 +22,25 @@ function App() {
     paneRight,
   );
 
-  const [activeView, setActiveView] = useState(Levels.Services);
-  const [selectedServiceId, setSelectedServiceId] = useState(null);
   const [sourceCode, setSourceCode] = useState('');
   const [analysisResults, setAnalysisResults] = useState<AnalysisResult>({});
+  const [activeView, setActiveView] = useState(Levels.Components);
+  const [selectedServiceId, setSelectedServiceId] = useState<string | null>(null);
 
   useEffect(() => {
     getAnalysis().then((analysis) => {
       setAnalysisResults(analysis);
       const projects = Object.keys(analysis);
       if (projects.length === 1) {
-        setActiveView(Levels.Modules);
         setSelectedServiceId(projects[0]);
+        setActiveView(Levels.Components);
       }
     });
   }, []);
 
-  const getSourceCodeForNode = async (node) => {
+  const getSourceCodeForNode = async (nodeId: string) => {
     try {
-      const res = await getSourceCode(node.id);
+      const res = await getSourceCode(nodeId);
       if (res) {
         setSourceCode(res);
       }
@@ -54,19 +54,19 @@ function App() {
     if (!nextView) {
       return;
     }
-    if (activeView === Levels.Services) {
-      setSelectedServiceId(nodeId);
-    }
+    // if (activeView === Levels.Services) {
+    //   setSelectedServiceId(nodeId);
+    // }
     setActiveView(nextView);
   };
 
-  const onNodeSelect = useCallback((node: Node) => {
-    switch (node.type) {
-      case SceneNodeType.ACTUAL:
-        return getSourceCodeForNode(node);
-      case SceneNodeType.PLANNED:
-        return setSourceCode(generateNewClass(node.data.name));
-    }
+  const onNodeSelect = useCallback((nodeId: string) => {
+    // switch (node.type) {
+    //   case SceneNodeType.ACTUAL:
+    //     return getSourceCodeForNode(nodeId);
+    //   case SceneNodeType.PLANNED:
+    //     return setSourceCode(generateNewClass(node.data.name));
+    // }
   }, []);
 
   const onNodeDeselect = () => {
@@ -74,9 +74,9 @@ function App() {
   };
 
   const onNodeSelectHandler = useCallback(
-    (node: Node | undefined) => {
-      if (node) {
-        onNodeSelect(node);
+    (nodeId: string | undefined) => {
+      if (nodeId) {
+        onNodeSelect(nodeId);
       } else {
         onNodeDeselect();
       }
@@ -88,9 +88,12 @@ function App() {
     switch (activeView) {
       case Levels.Components:
       case Levels.Modules:
-        return analysisResults[selectedServiceId].components;
-      case Levels.Services:
-        return analysisResults;
+        if (selectedServiceId && analysisResults) {
+          return analysisResults[selectedServiceId].components;
+        }
+        return {};
+      // case Levels.Services:
+      //   return analysisResults;
       default:
         return {};
     }
@@ -100,8 +103,8 @@ function App() {
     <div className="App" ref={paneContainer} onMouseMove={onResizing} onMouseUp={onResizeEnd}>
       <aside className="Menu" ref={paneLeft}>
         <Scenarios
-          serviceId={activeView === Levels.Components && selectedServiceId}
-          components={analysisResults[selectedServiceId]?.components}
+          serviceId={activeView === Levels.Components ? selectedServiceId as string : undefined}
+          components={analysisResults[selectedServiceId as string]?.components}
         />
       </aside>
       <div className="Splitter" data-index={0} onMouseDown={onResizeStart}></div>

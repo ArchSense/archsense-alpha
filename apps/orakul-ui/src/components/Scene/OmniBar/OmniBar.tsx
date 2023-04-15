@@ -6,7 +6,7 @@ interface OmniBarProps {
 }
 
 const OmniBar = ({ onAdd }: OmniBarProps) => {
-  const inputHandler = (ev) => console.log(ev.target.value);
+  const inputHandler = (ev: React.ChangeEvent) => console.log((ev.target as any).value);
 
   return (
     <div className="OmniBarContainer">

@@ -32,7 +32,7 @@
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
-    "start:dev": "nest start --watch -- nestjs -p ../../../../sweep-io/sweep-mono/sweep-api/apps/sweep-api/",
+    "start:dev": "nest start --watch -- nestjs -p ../guinea-pig-nestjs",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
@@ -45,7 +45,7 @@
   },
   "dependencies": {
     "@archsense/orakul-ui": "^0.1.5",
-    "@archsense/scout": "^0.1.7",
+    "@archsense/scout": "^0.2.2",
     "@nestjs/common": "^9.0.0",
     "@nestjs/config": "^2.3.1",
     "@nestjs/core": "^9.0.0",
