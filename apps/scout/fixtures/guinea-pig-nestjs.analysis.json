@@ -2,22 +2,22 @@
   ".": {
     "id": ".",
     "components": {
-      "/Users/bolshchikov/Documents/archsense/guinea-pig-nestjs/src/main.ts": {
-        "id": "/Users/bolshchikov/Documents/archsense/guinea-pig-nestjs/src/main.ts",
+      "/Users/bolshchikov/Documents/archsense/archsense-mono/apps/guinea-pig-nestjs/src/main.ts": {
+        "id": "/Users/bolshchikov/Documents/archsense/archsense-mono/apps/guinea-pig-nestjs/src/main.ts",
         "name": "main",
         "imports": [
-          "/Users/bolshchikov/Documents/archsense/guinea-pig-nestjs/src/tracing.ts",
-          "/Users/bolshchikov/Documents/archsense/guinea-pig-nestjs/src/app.module.ts"
+          "/Users/bolshchikov/Documents/archsense/archsense-mono/apps/guinea-pig-nestjs/src/tracing.ts",
+          "/Users/bolshchikov/Documents/archsense/archsense-mono/apps/guinea-pig-nestjs/src/app.module.ts"
         ],
         "exports": []
       },
-      "/Users/bolshchikov/Documents/archsense/guinea-pig-nestjs/src/app.module.ts": {
-        "id": "/Users/bolshchikov/Documents/archsense/guinea-pig-nestjs/src/app.module.ts",
+      "/Users/bolshchikov/Documents/archsense/archsense-mono/apps/guinea-pig-nestjs/src/app.module.ts": {
+        "id": "/Users/bolshchikov/Documents/archsense/archsense-mono/apps/guinea-pig-nestjs/src/app.module.ts",
         "name": "app.module",
         "imports": [
-          "/Users/bolshchikov/Documents/archsense/guinea-pig-nestjs/src/app.controller.ts",
-          "/Users/bolshchikov/Documents/archsense/guinea-pig-nestjs/src/app.service.ts",
-          "/Users/bolshchikov/Documents/archsense/guinea-pig-nestjs/src/invoices/invoices.module.ts"
+          "/Users/bolshchikov/Documents/archsense/archsense-mono/apps/guinea-pig-nestjs/src/app.controller.ts",
+          "/Users/bolshchikov/Documents/archsense/archsense-mono/apps/guinea-pig-nestjs/src/app.service.ts",
+          "/Users/bolshchikov/Documents/archsense/archsense-mono/apps/guinea-pig-nestjs/src/invoices/invoices.module.ts"
         ],
         "exports": [
           {
@@ -28,14 +28,14 @@
           }
         ]
       },
-      "/Users/bolshchikov/Documents/archsense/guinea-pig-nestjs/src/invoices/invoices.module.ts": {
-        "id": "/Users/bolshchikov/Documents/archsense/guinea-pig-nestjs/src/invoices/invoices.module.ts",
+      "/Users/bolshchikov/Documents/archsense/archsense-mono/apps/guinea-pig-nestjs/src/invoices/invoices.module.ts": {
+        "id": "/Users/bolshchikov/Documents/archsense/archsense-mono/apps/guinea-pig-nestjs/src/invoices/invoices.module.ts",
         "name": "invoices.module",
         "imports": [
-          "/Users/bolshchikov/Documents/archsense/guinea-pig-nestjs/src/ids/ids.service.ts",
-          "/Users/bolshchikov/Documents/archsense/guinea-pig-nestjs/src/storage/storage.service.ts",
-          "/Users/bolshchikov/Documents/archsense/guinea-pig-nestjs/src/invoices/invoices.controller.ts",
-          "/Users/bolshchikov/Documents/archsense/guinea-pig-nestjs/src/invoices/invoices.service.ts"
+          "/Users/bolshchikov/Documents/archsense/archsense-mono/apps/guinea-pig-nestjs/src/ids/ids.service.ts",
+          "/Users/bolshchikov/Documents/archsense/archsense-mono/apps/guinea-pig-nestjs/src/storage/storage.service.ts",
+          "/Users/bolshchikov/Documents/archsense/archsense-mono/apps/guinea-pig-nestjs/src/invoices/invoices.controller.ts",
+          "/Users/bolshchikov/Documents/archsense/archsense-mono/apps/guinea-pig-nestjs/src/invoices/invoices.service.ts"
         ],
         "exports": [
           {
@@ -46,14 +46,14 @@
           }
         ]
       },
-      "/Users/bolshchikov/Documents/archsense/guinea-pig-nestjs/src/invoices/invoices.service.ts": {
-        "id": "/Users/bolshchikov/Documents/archsense/guinea-pig-nestjs/src/invoices/invoices.service.ts",
+      "/Users/bolshchikov/Documents/archsense/archsense-mono/apps/guinea-pig-nestjs/src/invoices/invoices.service.ts": {
+        "id": "/Users/bolshchikov/Documents/archsense/archsense-mono/apps/guinea-pig-nestjs/src/invoices/invoices.service.ts",
         "name": "invoices.service",
         "imports": [
-          "/Users/bolshchikov/Documents/archsense/guinea-pig-nestjs/src/invoices/dto/create-invoice.dto.ts",
-          "/Users/bolshchikov/Documents/archsense/guinea-pig-nestjs/src/ids/ids.service.ts",
-          "/Users/bolshchikov/Documents/archsense/guinea-pig-nestjs/src/invoices/model/invoice.ts",
-          "/Users/bolshchikov/Documents/archsense/guinea-pig-nestjs/src/storage/storage.service.ts"
+          "/Users/bolshchikov/Documents/archsense/archsense-mono/apps/guinea-pig-nestjs/src/invoices/dto/create-invoice.dto.ts",
+          "/Users/bolshchikov/Documents/archsense/archsense-mono/apps/guinea-pig-nestjs/src/ids/ids.service.ts",
+          "/Users/bolshchikov/Documents/archsense/archsense-mono/apps/guinea-pig-nestjs/src/invoices/model/invoice.ts",
+          "/Users/bolshchikov/Documents/archsense/archsense-mono/apps/guinea-pig-nestjs/src/storage/storage.service.ts"
         ],
         "exports": [
           {
@@ -77,11 +77,11 @@
           }
         ]
       },
-      "/Users/bolshchikov/Documents/archsense/guinea-pig-nestjs/src/storage/storage.service.ts": {
-        "id": "/Users/bolshchikov/Documents/archsense/guinea-pig-nestjs/src/storage/storage.service.ts",
+      "/Users/bolshchikov/Documents/archsense/archsense-mono/apps/guinea-pig-nestjs/src/storage/storage.service.ts": {
+        "id": "/Users/bolshchikov/Documents/archsense/archsense-mono/apps/guinea-pig-nestjs/src/storage/storage.service.ts",
         "name": "storage.service",
         "imports": [
-          "/Users/bolshchikov/Documents/archsense/guinea-pig-nestjs/src/invoices/model/invoice.ts"
+          "/Users/bolshchikov/Documents/archsense/archsense-mono/apps/guinea-pig-nestjs/src/invoices/model/invoice.ts"
         ],
         "exports": [
           {
@@ -105,11 +105,11 @@
           }
         ]
       },
-      "/Users/bolshchikov/Documents/archsense/guinea-pig-nestjs/src/invoices/model/invoice.ts": {
-        "id": "/Users/bolshchikov/Documents/archsense/guinea-pig-nestjs/src/invoices/model/invoice.ts",
+      "/Users/bolshchikov/Documents/archsense/archsense-mono/apps/guinea-pig-nestjs/src/invoices/model/invoice.ts": {
+        "id": "/Users/bolshchikov/Documents/archsense/archsense-mono/apps/guinea-pig-nestjs/src/invoices/model/invoice.ts",
         "name": "invoice",
         "imports": [
-          "/Users/bolshchikov/Documents/archsense/guinea-pig-nestjs/src/invoices/dto/create-invoice.dto.ts"
+          "/Users/bolshchikov/Documents/archsense/archsense-mono/apps/guinea-pig-nestjs/src/invoices/dto/create-invoice.dto.ts"
         ],
         "exports": [
           {
@@ -120,8 +120,8 @@
           }
         ]
       },
-      "/Users/bolshchikov/Documents/archsense/guinea-pig-nestjs/src/invoices/dto/create-invoice.dto.ts": {
-        "id": "/Users/bolshchikov/Documents/archsense/guinea-pig-nestjs/src/invoices/dto/create-invoice.dto.ts",
+      "/Users/bolshchikov/Documents/archsense/archsense-mono/apps/guinea-pig-nestjs/src/invoices/dto/create-invoice.dto.ts": {
+        "id": "/Users/bolshchikov/Documents/archsense/archsense-mono/apps/guinea-pig-nestjs/src/invoices/dto/create-invoice.dto.ts",
         "name": "create-invoice.dto",
         "imports": [],
         "exports": [
@@ -133,8 +133,8 @@
           }
         ]
       },
-      "/Users/bolshchikov/Documents/archsense/guinea-pig-nestjs/src/ids/ids.service.ts": {
-        "id": "/Users/bolshchikov/Documents/archsense/guinea-pig-nestjs/src/ids/ids.service.ts",
+      "/Users/bolshchikov/Documents/archsense/archsense-mono/apps/guinea-pig-nestjs/src/ids/ids.service.ts": {
+        "id": "/Users/bolshchikov/Documents/archsense/archsense-mono/apps/guinea-pig-nestjs/src/ids/ids.service.ts",
         "name": "ids.service",
         "imports": [],
         "exports": [
@@ -153,12 +153,12 @@
           }
         ]
       },
-      "/Users/bolshchikov/Documents/archsense/guinea-pig-nestjs/src/invoices/invoices.controller.ts": {
-        "id": "/Users/bolshchikov/Documents/archsense/guinea-pig-nestjs/src/invoices/invoices.controller.ts",
+      "/Users/bolshchikov/Documents/archsense/archsense-mono/apps/guinea-pig-nestjs/src/invoices/invoices.controller.ts": {
+        "id": "/Users/bolshchikov/Documents/archsense/archsense-mono/apps/guinea-pig-nestjs/src/invoices/invoices.controller.ts",
         "name": "invoices.controller",
         "imports": [
-          "/Users/bolshchikov/Documents/archsense/guinea-pig-nestjs/src/invoices/dto/create-invoice.dto.ts",
-          "/Users/bolshchikov/Documents/archsense/guinea-pig-nestjs/src/invoices/invoices.service.ts"
+          "/Users/bolshchikov/Documents/archsense/archsense-mono/apps/guinea-pig-nestjs/src/invoices/dto/create-invoice.dto.ts",
+          "/Users/bolshchikov/Documents/archsense/archsense-mono/apps/guinea-pig-nestjs/src/invoices/invoices.service.ts"
         ],
         "exports": [
           {
@@ -182,11 +182,11 @@
           }
         ]
       },
-      "/Users/bolshchikov/Documents/archsense/guinea-pig-nestjs/src/app.service.ts": {
-        "id": "/Users/bolshchikov/Documents/archsense/guinea-pig-nestjs/src/app.service.ts",
+      "/Users/bolshchikov/Documents/archsense/archsense-mono/apps/guinea-pig-nestjs/src/app.service.ts": {
+        "id": "/Users/bolshchikov/Documents/archsense/archsense-mono/apps/guinea-pig-nestjs/src/app.service.ts",
         "name": "app.service",
         "imports": [
-          "/Users/bolshchikov/Documents/archsense/guinea-pig-nestjs/src/app.controller.ts"
+          "/Users/bolshchikov/Documents/archsense/archsense-mono/apps/guinea-pig-nestjs/src/app.controller.ts"
         ],
         "exports": [
           {
@@ -204,11 +204,11 @@
           }
         ]
       },
-      "/Users/bolshchikov/Documents/archsense/guinea-pig-nestjs/src/app.controller.ts": {
-        "id": "/Users/bolshchikov/Documents/archsense/guinea-pig-nestjs/src/app.controller.ts",
+      "/Users/bolshchikov/Documents/archsense/archsense-mono/apps/guinea-pig-nestjs/src/app.controller.ts": {
+        "id": "/Users/bolshchikov/Documents/archsense/archsense-mono/apps/guinea-pig-nestjs/src/app.controller.ts",
         "name": "app.controller",
         "imports": [
-          "/Users/bolshchikov/Documents/archsense/guinea-pig-nestjs/src/app.service.ts"
+          "/Users/bolshchikov/Documents/archsense/archsense-mono/apps/guinea-pig-nestjs/src/app.service.ts"
         ],
         "exports": [
           {
@@ -232,8 +232,8 @@
           }
         ]
       },
-      "/Users/bolshchikov/Documents/archsense/guinea-pig-nestjs/src/tracing.ts": {
-        "id": "/Users/bolshchikov/Documents/archsense/guinea-pig-nestjs/src/tracing.ts",
+      "/Users/bolshchikov/Documents/archsense/archsense-mono/apps/guinea-pig-nestjs/src/tracing.ts": {
+        "id": "/Users/bolshchikov/Documents/archsense/archsense-mono/apps/guinea-pig-nestjs/src/tracing.ts",
         "name": "tracing",
         "imports": [],
         "exports": []
