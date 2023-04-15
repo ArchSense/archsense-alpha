@@ -19,20 +19,6 @@ type Params = {
 export class Scout {
   constructor(private params: Params) {
     this.validateParams();
-    this.debugCI();
-  }
-
-  private debugCI() {
-    const rootPath = path.resolve(process.cwd(), '../');
-    console.log(rootPath);
-    const rootContent = readdirSync(rootPath)
-    console.log(rootContent);
-    if (rootContent.includes('guinea-pig-nestjs')) {
-      const folderPath = path.resolve(process.cwd(), '../guinea-pig-nestjs');
-      console.log(folderPath);
-      const gp = readdirSync(folderPath);
-      console.log(gp);
-    }
   }
 
   private validateParams() {
