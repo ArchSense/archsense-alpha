@@ -23,10 +23,14 @@ export class Scout {
   }
 
   private debugCI() {
-    const rootContent = readdirSync(path.resolve(process.cwd(), '../'))
+    const rootPath = path.resolve(process.cwd(), '../');
+    console.log(rootPath);
+    const rootContent = readdirSync(rootPath)
     console.log(rootContent);
     if (rootContent.includes('guinea-pig-nestjs')) {
-      const gp = readdirSync(path.resolve(process.cwd(), '../guinea-pig-nestjs'));
+      const folderPath = path.resolve(process.cwd(), '../guinea-pig-nestjs');
+      console.log(folderPath);
+      const gp = readdirSync(folderPath);
       console.log(gp);
     }
   }
