@@ -23,7 +23,11 @@ const getClosestTsConfigFile = (
       const { config } = ts.parseConfigFileTextToJson(TS_CONFIG_FILE_NAME, res);
       return { content: config, path: tsConfigFilePath };
     } catch (error) {
-      console.log(readdirSync(currentPath));
+      try {
+        console.log(readdirSync(currentPath));
+      } catch (error) {
+        console.log(error);
+      }
       currentPath = path.resolve(currentPath, '../');
       current++;
     }
