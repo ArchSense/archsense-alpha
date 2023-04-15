@@ -12,12 +12,15 @@ defaults:
     working-directory: apps/scout
 
 jobs:
+  'show-structure':
+    runs-on: ubuntu-latest
+    steps:
+      - run: cp ../ | ls -al
+      - run: cp ../guinea-pig-nestjs | ls -al
   test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
       - uses: actions/setup-node@v3
         with:
           node-version: 18
