@@ -2,9 +2,11 @@ name: 'CI'
 
 on: 
   push:
-  pull_request:
     branches:
       - main
+  pull_request:
+    pull_request:
+    types: [opened, reopened]
 
 defaults:
   run:
