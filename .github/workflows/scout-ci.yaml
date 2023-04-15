@@ -1,10 +1,11 @@
-name: 'CI'
+name: CI
 
-on: 
+
+on:
   push:
-  pull_request:
     branches:
       - main
+  pull_request:
 
 defaults:
   run:
