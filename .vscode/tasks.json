@@ -1,0 +1,22 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+    {
+      "type": "npm",
+      "script": "watch",
+      "path": "apps/architecture-view-nestjs",
+      "isBackground": true,
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": "$ts-webpack-watch",
+      "label": "npm: watch - apps/architecture-view-nestjs",
+      "detail": "webpack --watch",
+      "presentation": {
+        "reveal": "never",
+        "group": "watchers"
+      }
+    }
+  ]
+}
