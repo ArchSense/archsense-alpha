@@ -74,7 +74,10 @@ export const config: Options.Testrunner = {
     acceptInsecureCerts: true,
     'wdio:vscodeOptions': {
       extensionPath: path.join(__dirname, './'),
-      workspacePath: path.join(__dirname, '../guinea-pig-nestjs')
+      workspacePath: path.join(__dirname, '../guinea-pig-nestjs'),
+      userSettings: {
+        'telemetry.enableTelemetry': false,
+      }
     },
     // If outputDir is provided WebdriverIO can capture driver session logs
     // it is possible to configure which logTypes to include/exclude.

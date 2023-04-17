@@ -9,6 +9,7 @@ on:
 defaults:
   run:
     working-directory: apps/architecture-view-nestjs
+    shell: bash
 
 jobs:
   build:
@@ -36,4 +37,4 @@ jobs:
         if: runner.os == 'Linux'
       - run: npm test
         if: runner.os != 'Linux'
-        shell: bash
+        
