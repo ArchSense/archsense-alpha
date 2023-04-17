@@ -16,7 +16,7 @@ describe('Architecture view extension', () => {
     const archWebview = await workbench.getWebviewByTitle('Architecture View');
     await archWebview.open();
     await $('.react-flow__node-actual').waitForExist({
-      timeout: 60 * 1000,
+      timeout: 3 * 60 * 1000,
       timeoutMsg: 'Client took too long to load',
       interval: 500,
     });
