@@ -9,6 +9,7 @@ on:
 defaults:
   run:
     working-directory: apps/architecture-view-nestjs
+
 jobs:
   build:
     runs-on: ubuntu-latest

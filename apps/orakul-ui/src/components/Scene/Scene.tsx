@@ -146,7 +146,6 @@ const Scene = ({ data, onNodeEnter, onNodeSelect, onViewChange, view }: ScenePro
         onEdgesChange={onEdgesChange}
         onSelectionChange={onSelectionChangeHandler}
         onNodeDoubleClick={onDoubleClickHandler}
-        fitView
       >
         <MiniMap pannable />
         <Controls showZoom />
