@@ -26,7 +26,6 @@ jobs:
     steps:
       - run: npm run ci
       - run: npm run webview
-        shell: bash
       - run: npm run compile-scripts
       - run: cd ./out | ls -al
   # test:
