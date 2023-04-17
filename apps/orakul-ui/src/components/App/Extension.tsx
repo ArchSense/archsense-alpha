@@ -1,33 +1,33 @@
 import { AnalysisResult } from '@archsense/scout';
 import useMessage from '@rottitime/react-hook-message-event';
-import * as React from 'react';
 import { useEffect, useState } from 'react';
 import { useDebouncedCallback } from 'use-debounce';
-import { getNextLevel, Levels } from '../services/levels';
-import Scene from './Scene/Scene';
-import { FullScreenLoader } from './Loader/Loader';
+import { Levels, getNextLevel } from '../../services/levels';
+import { FullScreenLoader } from '../Loader/Loader';
+import Scene from '../Scene/Scene';
+import './App.css';
 
-const App = () => {
+function App() {
   useMessage('analysis', (_, payload) => {
-    setAnalysis(payload as AnalysisResult);
+    setAnalysisResults(payload as AnalysisResult);
   });
 
-  const [analysis, setAnalysis] = useState<AnalysisResult | null>(null);
+  const [analysisResults, setAnalysisResults] = useState<AnalysisResult | null>(null);
   const [activeView, setActiveView] = useState(Levels.Components);
   const [selectedServiceId, setSelectedServiceId] = useState<string | null>(null);
 
   useEffect(() => {
-    if (!analysis) {
+    if (!analysisResults) {
       return;
     }
-    const projects = Object.keys(analysis);
+    const projects = Object.keys(analysisResults);
     if (projects.length === 1) {
       setSelectedServiceId(projects[0]);
       setActiveView(Levels.Components);
     }
-  }, [analysis]);
+  }, [analysisResults]);
 
-  const onNodeEnterHandler = () => {
+  const onNodeEnterHandler = (nodeId: string) => {
     const nextView = getNextLevel(activeView);
     if (!nextView) {
       return;
@@ -39,40 +39,39 @@ const App = () => {
   };
 
   const onNodeSelect = useDebouncedCallback((nodeId: string) => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (window as any).vscode.postMessage({ type: 'openFile', payload: nodeId });
-  }, 50);
+  }, 100);
 
   const getSceneData = () => {
     switch (activeView) {
       case Levels.Components:
       case Levels.Modules:
-        if (selectedServiceId && analysis) {
-          return analysis[selectedServiceId].components;
+        if (selectedServiceId && analysisResults) {
+          return analysisResults[selectedServiceId].components;
         }
         return {};
       // case Levels.Services:
-      //   return analysis;
+      //   return analysisResults;
       default:
         return {};
     }
   };
 
-  if (!analysis) {
-    return <FullScreenLoader />;
+  if (!analysisResults) {
+    return (
+      <FullScreenLoader />
+    );
   }
 
   return (
-    analysis && (
-      <Scene
-        data={getSceneData()}
-        onNodeEnter={onNodeEnterHandler}
-        onNodeSelect={onNodeSelect}
-        onViewChange={setActiveView}
-        view={activeView}
-      />
-    )
+    <Scene
+      data={getSceneData()}
+      onNodeEnter={onNodeEnterHandler}
+      onNodeSelect={onNodeSelect}
+      onViewChange={setActiveView}
+      view={activeView}
+    />
   );
-};
+}
 
 export default App;

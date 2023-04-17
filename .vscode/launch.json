@@ -9,28 +9,13 @@
       "name": "Run Extension",
       "type": "extensionHost",
       "request": "launch",
-      "cwd": "apps/archsense-view-nestjs",
       "args": [
-        "--extensionDevelopmentPath=${workspaceFolder}"
+        "--extensionDevelopmentPath=${workspaceFolder}/apps/architecture-view-nestjs"
       ],
       "outFiles": [
-        "${workspaceFolder}/dist/**/*.js"
+        "${workspaceFolder}/apps/architecture-view-nestjs/dist/**/*.js"
       ],
       "preLaunchTask": "${defaultBuildTask}"
-    },
-    {
-      "name": "Extension Tests",
-      "type": "extensionHost",
-      "request": "launch",
-      "args": [
-        "--extensionDevelopmentPath=${workspaceFolder}",
-        "--extensionTestsPath=${workspaceFolder}/out/test/suite/index"
-      ],
-      "outFiles": [
-        "${workspaceFolder}/out/**/*.js",
-        "${workspaceFolder}/dist/**/*.js"
-      ],
-      "preLaunchTask": "tasks: watch-tests"
     }
   ]
 }

@@ -1,12 +1,14 @@
 import { AnalysisResult } from '@archsense/scout';
+import useMessage from '@rottitime/react-hook-message-event';
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { Node } from 'reactflow';
+import { useDebouncedCallback } from 'use-debounce';
 import { getAnalysis, getSourceCode } from '../../services/api';
-import { getNextLevel, Levels } from '../../services/levels';
-import { defaultComment, generateNewClass } from '../Editor/codeTemplates';
+import config from '../../services/config';
+import { Levels, getNextLevel } from '../../services/levels';
 import Editor from '../Editor/Editor';
+import { defaultComment } from '../Editor/codeTemplates';
+import { FullScreenLoader } from '../Loader/Loader';
 import Scenarios from '../Scenarios/Scenarios';
-import { SceneNodeType } from '../Scene/Node/Node';
 import Scene from '../Scene/Scene';
 import './App.css';
 import useSplitPanel from './useSplitPanel';
@@ -22,23 +24,34 @@ function App() {
     paneRight,
   );
 
+  useMessage('analysis', (_, payload) => {
+    setAnalysisResults(payload as AnalysisResult);
+  });
+
   const [sourceCode, setSourceCode] = useState('');
-  const [analysisResults, setAnalysisResults] = useState<AnalysisResult>({});
+  const [analysisResults, setAnalysisResults] = useState<AnalysisResult | null>(null);
   const [activeView, setActiveView] = useState(Levels.Components);
   const [selectedServiceId, setSelectedServiceId] = useState<string | null>(null);
 
   useEffect(() => {
-    getAnalysis().then((analysis) => {
-      setAnalysisResults(analysis);
-      const projects = Object.keys(analysis);
-      if (projects.length === 1) {
-        setSelectedServiceId(projects[0]);
-        setActiveView(Levels.Components);
-      }
-    });
+    if (!config.standalone) {
+      return;
+    }
+    getAnalysis().then(setAnalysisResults);
   }, []);
 
-  const getSourceCodeForNode = async (nodeId: string) => {
+  useEffect(() => {
+    if (!analysisResults) {
+      return;
+    }
+    const projects = Object.keys(analysisResults);
+    if (projects.length === 1) {
+      setSelectedServiceId(projects[0]);
+      setActiveView(Levels.Components);
+    }
+  }, [analysisResults]);
+
+  const fetchSourceCode = async (nodeId: string) => {
     try {
       const res = await getSourceCode(nodeId);
       if (res) {
@@ -60,14 +73,13 @@ function App() {
     setActiveView(nextView);
   };
 
-  const onNodeSelect = useCallback((nodeId: string) => {
-    // switch (node.type) {
-    //   case SceneNodeType.ACTUAL:
-    //     return getSourceCodeForNode(nodeId);
-    //   case SceneNodeType.PLANNED:
-    //     return setSourceCode(generateNewClass(node.data.name));
-    // }
-  }, []);
+  const onNodeSelect = useDebouncedCallback((nodeId: string) => {
+    if (config.standalone) {
+      fetchSourceCode(nodeId)
+    } else {
+      (window as any).vscode.postMessage({ type: 'openFile', payload: nodeId });
+    }
+  }, 100);
 
   const onNodeDeselect = () => {
     return setSourceCode(defaultComment);
@@ -98,6 +110,12 @@ function App() {
         return {};
     }
   };
+
+  if (!analysisResults) {
+    return (
+      <FullScreenLoader />
+    );
+  }
 
   return (
     <div className="App" ref={paneContainer} onMouseMove={onResizing} onMouseUp={onResizeEnd}>

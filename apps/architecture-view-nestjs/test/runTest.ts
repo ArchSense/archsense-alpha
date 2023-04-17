@@ -6,13 +6,13 @@ async function main() {
   try {
     // The folder containing the Extension Manifest package.json
     // Passed to `--extensionDevelopmentPath`
-    const extensionDevelopmentPath = path.resolve(__dirname, '../');
+    const extensionDevelopmentPath = path.resolve(__dirname, '../src');
 
     // The path to test runner
     // Passed to --extensionTestsPath
     const extensionTestsPath = path.resolve(__dirname, './suite/index');
 
-    const workspacePath = path.join(__dirname, '../', './test-fixtures/guniea-pig-nestjs');
+    const workspacePath = path.resolve(__dirname, '../../../guinea-pig-nestjs');
 
     // Download VS Code, unzip it and run the integration test
     await runTests({
