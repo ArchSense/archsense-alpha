@@ -19,7 +19,7 @@ jobs:
           node-version: 18
       - run: npm ci
       - run: npm run lint
-      - run: npm run compile
+      - run: npm run build
   test:
     strategy:
       matrix:
