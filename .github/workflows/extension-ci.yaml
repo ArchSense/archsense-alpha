@@ -30,7 +30,7 @@ jobs:
           node-version: 18
       - run: npm ci
       - run: npm run webview
-      - run: npm run compile-scripts
+      - run: npm run compile-tests
       - run: cd ./out | ls -al
   # test:
   #   strategy:
