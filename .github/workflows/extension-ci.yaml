@@ -30,8 +30,11 @@ jobs:
           node-version: 18
       - run: npm ci
       - run: npm run webview
+        shell: bash
       - run: npm run compile-tests
+        shell: bash
       - run: cd ./out | ls -al
+        shell: bash
   # test:
   #   strategy:
   #     matrix:
