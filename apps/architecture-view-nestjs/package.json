@@ -44,7 +44,7 @@
     "vscode:prepublish": "npm run package",
     "build": "tsc -p ./",
     "watch": "tsc -watch -p ./",
-    "webview": "./scripts/webview-build.sh",
+    "webview": "cross-env-shell ./scripts/webview-build.sh",
     "package": "npm run webview && npm run build",
     "compile-tests": "tsc -p ./ --outDir out",
     "pretest": "npm run build && npm run webview && npm run compile-tests",
