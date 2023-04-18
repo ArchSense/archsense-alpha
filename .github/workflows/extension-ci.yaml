@@ -30,8 +30,6 @@ jobs:
           node-version: 18
       - run: npm ci
       - run: npm run webview
-      - run: |
-
       - run: cd .\out | ls
   # test:
   #   strategy:
