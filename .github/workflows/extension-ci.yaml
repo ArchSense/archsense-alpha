@@ -30,9 +30,7 @@ jobs:
           node-version: 18
       - run: npm ci
       - run: npm run webview
-      - run: |
-          sleep 30
-          sleep 30
+      - run: sleep 180
       - run: cd .\out | ls
   # test:
   #   strategy:
