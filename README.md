@@ -8,7 +8,6 @@
     <img src="https://img.shields.io/badge/Donate-ff3f59.svg"/>
   </a>
 </p>
-<br>
 
 ## Mission
 
