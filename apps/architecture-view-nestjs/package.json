@@ -47,13 +47,13 @@
     "webview": "cross-env-shell ./scripts/webview-build.sh",
     "package": "npm run webview && npm run build",
     "compile-tests": "tsc -p ./ --outDir out",
-    "pretest": "npm run build && npm run webview && npm run compile-tests",
+    "pretest": "npm run build && npm run compile-tests",
     "lint": "eslint ./src",
     "format": "prettier --write \"{src,test}/**/*.{ts,tsx}\" \"*.md\"",
     "test:unit": "node ./out/test/runTest.js",
     "test:e2e": "npx wdio run ./wdio.conf.ts",
     "test": "npm run test:unit && npm run test:e2e",
-    "deploy": "vsce publish"
+    "publish": "vsce publish"
   },
   "devDependencies": {
     "@types/glob": "^8.1.0",
