@@ -2,6 +2,11 @@
 
 All notable changes to the "architecture-view-nestjs" extension will be documented in this file.
 
+## [0.5.1] - 2023-04-19
+
+- Move to mono repo
+- Improve loading performance
+
 ## [0.5.0] - 2023-04-12
 
 - feat(parser): Support absolute and paths from ts config [#15](https://github.com/ArchSense/architecture-view-nestjs/issues/15)
