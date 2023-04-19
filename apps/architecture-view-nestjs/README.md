@@ -12,11 +12,11 @@ Visualize the architecture of your NestJs application.
 </p>
 <br>
 
-![Why](./images/meme.jpg)
+![Why](https://github.com/ArchSense/archsense-mono/raw/HEAD/apps/architecture-view-nestjs/images/meme.jpg)
 
 ## Usage
 
-![Demo](./images/demo.gif)
+![Demo](https://github.com/ArchSense/archsense-mono/raw/HEAD/apps/architecture-view-nestjs/images/demo.gif)
 
 Inside the opened NestJs application in your workspace, run the following command from the pallette:
 
