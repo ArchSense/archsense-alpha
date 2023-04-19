@@ -31,15 +31,18 @@ jobs:
       - run: npm ci
       - run: mkdir ./out
         shell: bash
-      - run: cd ../orakul-ui
+        
+      - name: Build extension
+        run: npm ci
+        working-directory: apps/orakul-ui
+        run: npm run build:extension
+        working-directory: apps/orakul-ui
+        run: cp -r ./build/static ../architecture-view-nestjs/out
+        working-directory: apps/orakul-ui
         shell: bash
-      - run: npm ci
-        shell: bash
-      - run: npm run build:extension
-        shell: bash
-      - run: cp -r ./build/static ../architecture-view-nestjs/out
-        shell: bash
-      - run: cd .\out | ls
+      - name: check
+        run: cd .\out | ls
+        working-directory: apps/architecture-view-nestjs
   # test:
   #   strategy:
   #     matrix:
