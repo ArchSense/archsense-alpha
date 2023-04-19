@@ -1,7 +1,12 @@
 import { Handle, Position } from 'reactflow';
 import './ActualNode.css';
+import { ParsedResult } from '@archsense/scout';
 
-const ClassNode = ({ data }) => {
+interface ClassNodeProps {
+  data: ParsedResult['exports'][number];
+}
+
+const ClassNode = ({ data }: ClassNodeProps) => {
   return (
     <>
       <Handle
@@ -11,7 +16,7 @@ const ClassNode = ({ data }) => {
       />
       <div>
         <b>{data.name}</b>
-        {data.members.length > 0 && (
+        {data.members && data.members.length > 0 && (
           <ul>
             {data.members.map(({ name, id }) => (
               <li key={id}>{name}</li>

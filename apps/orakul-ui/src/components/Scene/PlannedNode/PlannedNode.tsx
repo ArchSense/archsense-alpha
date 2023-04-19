@@ -1,7 +1,7 @@
 import { Handle, Position } from 'reactflow';
 import './PlannedNode.css';
 
-const PlannedNode = ({ data }) => {
+const PlannedNode = ({ data }: { data: any }) => {
   return (
     <>
       <Handle

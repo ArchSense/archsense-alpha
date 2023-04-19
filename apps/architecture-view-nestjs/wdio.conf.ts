@@ -74,7 +74,10 @@ export const config: Options.Testrunner = {
     acceptInsecureCerts: true,
     'wdio:vscodeOptions': {
       extensionPath: path.join(__dirname, './'),
-      workspacePath: path.join(__dirname, '../guinea-pig-nestjs')
+      workspacePath: path.join(__dirname, '../guinea-pig-nestjs'),
+      userSettings: {
+        'telemetry.enableTelemetry': false,
+      }
     },
     // If outputDir is provided WebdriverIO can capture driver session logs
     // it is possible to configure which logTypes to include/exclude.
@@ -159,7 +162,7 @@ export const config: Options.Testrunner = {
   // See the full list at http://mochajs.org/
   mochaOpts: {
     ui: 'bdd',
-    timeout: 60000
+    timeout: 1000 * 60 * 5
   },
   //
   // =====
@@ -213,8 +216,9 @@ export const config: Options.Testrunner = {
    * @param {Array.<String>} specs        List of spec file paths that are to be run
    * @param {Object}         browser      instance of created browser/device session
    */
-  // before: function (capabilities, specs) {
-  // },
+  before: function (capabilities, specs) {
+    browser.setWindowSize(1728, 1117); 
+  },
   /**
    * Runs before a WebdriverIO command gets executed.
    * @param {String} commandName hook command name

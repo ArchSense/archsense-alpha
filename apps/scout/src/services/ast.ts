@@ -1,4 +1,4 @@
-import { readFileSync } from 'fs';
+import { readFileSync, readdirSync } from 'fs';
 import path from 'path';
 import { Decorator, MethodDeclaration, Project, SourceFile } from 'ts-morph';
 import ts from 'typescript';

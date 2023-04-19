@@ -1,6 +1,6 @@
 {
   "name": "@archsense/orakul-starter",
-  "version": "0.1.6",
+  "version": "0.2.0",
   "description": "Visualize your architecture that make sense",
   "author": "Sergey Bolshchikov <sergey@bolshchikov.net>",
   "publishConfig": {
@@ -32,7 +32,7 @@
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
-    "start:dev": "nest start --watch -- nestjs -p ../../../../sweep-io/sweep-mono/sweep-api/apps/sweep-api/",
+    "start:dev": "nest start --watch -- nestjs -p ../guinea-pig-nestjs",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
@@ -44,8 +44,8 @@
     "release": "npm run build && npm publish"
   },
   "dependencies": {
-    "@archsense/orakul-ui": "^0.1.5",
-    "@archsense/scout": "^0.1.7",
+    "@archsense/orakul-ui": "^0.2.0",
+    "@archsense/scout": "^0.2.3",
     "@nestjs/common": "^9.0.0",
     "@nestjs/config": "^2.3.1",
     "@nestjs/core": "^9.0.0",

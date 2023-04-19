@@ -149,8 +149,11 @@ export default class ArchitectureViewPanel {
   }
 
   private _getHtmlForWebview(webview: vscode.Webview) {
+    const stylesUri = webview.asWebviewUri(
+      vscode.Uri.joinPath(this.extensionUri, 'out', 'static', 'css', 'main.css'),
+    );
     const scriptUri = webview.asWebviewUri(
-      vscode.Uri.joinPath(this.extensionUri, 'out', 'main.wv.js'),
+      vscode.Uri.joinPath(this.extensionUri, 'out', 'static', 'js', 'main.js'),
     );
 
     const nonce = getNonce();
@@ -161,6 +164,7 @@ export default class ArchitectureViewPanel {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>${webviewTabTitle}</title>
+        <link rel="stylesheet" type="text/css" href="${stylesUri}">
       </head>
       <body>
         <div id="root"></div>

@@ -6,21 +6,21 @@ const CSSValueToNumber = (value: string) => {
   return Number(value.replace('px', ''));
 };
 
-const useSplitPanel = (containerRef, ...paneRefs) => {
+const useSplitPanel = (containerRef: React.RefObject<any>, ...paneRefs: React.RefObject<any>[]) => {
   const isDragging = useRef(false);
   const activeSplitterIndex = useRef(0);
 
-  const onResizeStart = (ev) => {
+  const onResizeStart = (ev: React.BaseSyntheticEvent) => {
     isDragging.current = true;
     ev.target.classList.toggle('draggable');
     activeSplitterIndex.current = ev.target.dataset['index'] ?? 0;
   };
-  const onResizeEnd = (ev) => {
+  const onResizeEnd = (ev: React.BaseSyntheticEvent) => {
     isDragging.current = false;
     ev.target.classList.toggle('draggable');
   };
 
-  const calculatePaneLeftPWidth = (ev) => {
+  const calculatePaneLeftPWidth = (ev: React.MouseEvent) => {
     if (Number(activeSplitterIndex.current) === 0) {
       const minWidth = CSSValueToNumber(getComputedStyle(paneRefs[0].current).minWidth);
       return ev.clientX < minWidth ? minWidth : ev.clientX;
@@ -28,7 +28,7 @@ const useSplitPanel = (containerRef, ...paneRefs) => {
     return paneRefs[0].current.clientWidth;
   };
 
-  const calculatePaneRightWidth = (ev) => {
+  const calculatePaneRightWidth = (ev: React.MouseEvent) => {
     if (Number(activeSplitterIndex.current) === 1) {
       const minWidth = CSSValueToNumber(getComputedStyle(paneRefs[1].current).minWidth);
       const newWidth = containerRef.current.clientWidth - ev.clientX;
@@ -36,7 +36,7 @@ const useSplitPanel = (containerRef, ...paneRefs) => {
     }
     return paneRefs[1].current.clientWidth;
   };
-  const onResizing = (ev) => {
+  const onResizing = (ev: React.MouseEvent) => {
     if (!isDragging.current) {
       return;
     }

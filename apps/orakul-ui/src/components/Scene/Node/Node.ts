@@ -1,13 +1,16 @@
+import { FileIdentifier } from '@archsense/scout';
+
 export enum SceneNodeType {
   PLANNED = 'planned',
   ACTUAL = 'actual',
 }
 
-const paintClass = (fileName) => {
+const paintClass = (fileName: string) => {
   const parts = fileName.split(/(?=[A-Z])/);
-  const type = parts.at(-1) ? parts.at(-1).toLowerCase() : void 0;
+  const type = (parts.length && parts.at(-1)) ? parts.at(-1)?.toLowerCase() : void 0;
   switch (type) {
     case 'controller':
+    case 'resolver':
       return '#3b5bdbbf';
     case 'service':
       return '#3cd93cbd';
@@ -16,7 +19,7 @@ const paintClass = (fileName) => {
   }
 };
 
-export const buildActualNode = ({ data, id }) => {
+export const buildActualNode = ({ data, id }: { data: any, id: FileIdentifier }) => {
   const newNode = {
     id: id,
     position: { x: -100, y: -100 },
@@ -32,12 +35,12 @@ export const buildActualNode = ({ data, id }) => {
   return newNode;
 };
 
-export const buildPlannedNode = ({ data }) => {
+export const buildPlannedNode = ({ data }: { data: any }) => {
   const newNode = {
     id: String(Math.random()),
     position: { x: 800, y: 50 },
     type: SceneNodeType.PLANNED,
-    data: data,
+    data,
     selectable: true,
     deletable: true,
     className: 'PlannedNode',
@@ -46,7 +49,7 @@ export const buildPlannedNode = ({ data }) => {
   return newNode;
 };
 
-export const buildAbstractNode = (id, label) => {
+export const buildAbstractNode = (id: string, label: string) => {
   return {
     id,
     position: { x: -100, y: -100 },

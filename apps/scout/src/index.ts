@@ -5,6 +5,8 @@ import { getValidConfig } from './services/config';
 import { Config } from './types/config';
 import { AnalysisResult } from './types/output';
 import { Path } from './types/path';
+import path from 'path';
+import { readdirSync } from 'fs';
 
 export * from './types';
 

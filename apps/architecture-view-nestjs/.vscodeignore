@@ -1,4 +1,4 @@
-!out/main*.js
+!out/static/**/*
 .github
 .gitignore
 .vscode-test/**
@@ -14,6 +14,6 @@ images/*.jpg
 node_modules/**
 out/**/*
 src/**
-test-fixtures
+dist/test/**
+scripts/**
 vsc-extension-quickstart.md
-webpack.config.js
