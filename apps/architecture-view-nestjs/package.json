@@ -53,7 +53,7 @@
     "test:unit": "node ./out/test/runTest.js",
     "test:e2e": "npx wdio run ./wdio.conf.ts",
     "test": "npm run test:unit && npm run test:e2e",
-    "publish": "vsce publish"
+    "release": "vsce publish"
   },
   "devDependencies": {
     "@types/glob": "^8.1.0",
