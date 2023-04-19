@@ -10,19 +10,15 @@
 </p>
 <br>
 
-## Why?
-<details>
-<summary>Read the mission</summary>
+## Mission
 
-## We make product decisions based on inaccurate knowledge
+### We make product decisions based on inaccurate knowledge
 As a software company, it can be difficult to accurately explain or demonstrate how the product is built.
 Therefore we built inaccurate diagrams that represent specific parts of the product and make decisions based on them.
 This often leads to miscommunications and unexpected issues that become very costly since they are often discovered too late in the process.
 
-## How are we fixing it?
+### How are we fixing it?
 We are on the path to building a solution that allows any relevant stakeholder (Engineer, Team Leader, Architect, Product Manager or even CTO) to see the live and always up-to-date architecture of their product, get alerts when bad practice is detected and design future solutions based on the real picture.
-</details>
-<br />
 
 ## Projects
 
@@ -33,3 +29,6 @@ We are on the path to building a solution that allows any relevant stakeholder (
 | Orakul UI                |  [![npm version](https://badge.fury.io/js/@archsense%2Forakul-ui.svg)](https://badge.fury.io/js/@archsense%2Forakul-ui)  | Visualizes the static analysis results                                                |
 | Orakul Started           |  [![npm version](https://badge.fury.io/js/@archsense%2Forakul-starter.svg)](https://badge.fury.io/js/@archsense%2Forakul-starter)  | Server for the UI                                                                     |
 | Architecture View NestJS |  [![version](https://img.shields.io/vscode-marketplace/v/archsense.architecture-view-nestjs.svg?label=marketplace)](https://marketplace.visualstudio.com/items?itemName=archsense.architecture-view-nestjs)  | VSCode extension that uses Scout and Orakul UI to visualize the architecture          |
+
+## License
+[MIT](./LICENSE)
