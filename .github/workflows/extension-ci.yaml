@@ -29,7 +29,15 @@ jobs:
         with:
           node-version: 18
       - run: npm ci
-      - run: rm -rf ./out | mkdir ./out | cd ../orakul-ui | npm ci | npm run build:extension | cp -r ./build/static ../architecture-view-nestjs/out
+      - run: mkdir ./out
+        shell: bash
+      - run: cd ../orakul-ui
+        shell: bash
+      - run: npm ci
+        shell: bash
+      - run: npm run build:extension
+        shell: bash
+      - run: cp -r ./build/static ../architecture-view-nestjs/out
         shell: bash
       - run: cd .\out | ls
   # test:
