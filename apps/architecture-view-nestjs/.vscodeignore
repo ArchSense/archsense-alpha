@@ -14,5 +14,6 @@ images/*.jpg
 node_modules/**
 out/**/*
 src/**
+dist/test/**
 scripts/**
 vsc-extension-quickstart.md
