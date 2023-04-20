@@ -3,7 +3,7 @@
   "publisher": "archsense",
   "displayName": "Architecture View NestJS",
   "description": "The architecture view for NestJS application",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "repository": {
     "type": "git",
     "url": "https://github.com/ArchSense/archsense-mono"
@@ -30,7 +30,7 @@
   "activationEvents": [
     "onLanguage:typescript"
   ],
-  "main": "./dist/src/extension.js",
+  "main": "./dist/extension.js",
   "contributes": {
     "commands": [
       {
@@ -42,8 +42,8 @@
   "scripts": {
     "prebuild": "rimraf dist",
     "vscode:prepublish": "npm run package",
-    "build": "tsc -p ./",
-    "watch": "tsc -watch -p ./",
+    "build": "webpack",
+    "build:watch": "webpack --watch",
     "webview": "cross-env-shell ./scripts/webview-build.sh",
     "package": "npm run webview && npm run build",
     "compile-tests": "tsc -p ./ --outDir out",
@@ -75,8 +75,11 @@
     "mocha": "^10.2.0",
     "prettier": "^2.8.7",
     "rimraf": "^5.0.0",
+    "ts-loader": "^9.4.2",
     "ts-node": "^10.9.1",
-    "wdio-vscode-service": "^5.0.0"
+    "wdio-vscode-service": "^5.0.0",
+    "webpack": "^5.80.0",
+    "webpack-cli": "^5.0.1"
   },
   "dependencies": {
     "@archsense/scout": "^0.2.2",
