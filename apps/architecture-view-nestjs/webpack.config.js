@@ -10,7 +10,7 @@ const path = require('path');
 /** @type WebpackConfig */
 const extensionConfig = {
   target: 'node', // VS Code extensions run in a Node.js-context 📖 -> https://webpack.js.org/configuration/node/
-  mode: 'none', // this leaves the source code as close as possible to the original (when packaging we set this to 'production')
+  mode: 'production', // this leaves the source code as close as possible to the original (when packaging we set this to 'production')
 
   entry: './src/extension.ts', // the entry point of this extension, 📖 -> https://webpack.js.org/configuration/entry-context/
   output: {
@@ -27,6 +27,9 @@ const extensionConfig = {
     // support reading TypeScript and JavaScript files, 📖 -> https://github.com/TypeStrong/ts-loader
     extensions: ['.ts', '.js']
   },
+  node: {
+    __dirname: true,
+  },
   module: {
     rules: [{
       test: /\.html$/i,
@@ -39,7 +42,7 @@ const extensionConfig = {
       }]
     }]
   },
-  devtool: 'nosources-source-map',
+  devtool: 'source-map',
   infrastructureLogging: {
     level: "log", // enables logging required for problem matchers
   },
