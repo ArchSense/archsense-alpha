@@ -4,7 +4,7 @@ All notable changes to the "architecture-view-nestjs" extension will be document
 
 ## [0.5.3] - 2023-04-20
 
-- Fix broken packaging
+- Fix broken packaging in [#7](https://github.com/ArchSense/archsense-mono/pull/7)
 
 ## [0.5.2] - 2023-04-19
 
