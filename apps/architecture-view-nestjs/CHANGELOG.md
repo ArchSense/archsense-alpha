@@ -2,6 +2,10 @@
 
 All notable changes to the "architecture-view-nestjs" extension will be documented in this file.
 
+## [0.5.3] - 2023-04-20
+
+- Fix broken packaging
+
 ## [0.5.2] - 2023-04-19
 
 - Fix readme links
