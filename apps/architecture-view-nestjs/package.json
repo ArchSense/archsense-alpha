@@ -3,7 +3,7 @@
   "publisher": "archsense",
   "displayName": "Architecture View NestJS",
   "description": "The architecture view for NestJS application",
-  "version": "0.5.3",
+  "version": "0.6.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/ArchSense/archsense-mono"
@@ -82,7 +82,7 @@
     "webpack-cli": "^5.0.1"
   },
   "dependencies": {
-    "@archsense/scout": "^0.2.4-rc1",
+    "@archsense/scout": "^0.2.4",
     "@vscode/extension-telemetry": "^0.7.7",
     "typescript": "^4.9.5"
   },

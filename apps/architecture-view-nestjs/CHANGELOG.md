@@ -2,6 +2,10 @@
 
 All notable changes to the "architecture-view-nestjs" extension will be documented in this file.
 
+## [0.6.0] - 2023-04-23
+
+- Support DB entity [#8](https://github.com/ArchSense/archsense-mono/pull/8)
+
 ## [0.5.3] - 2023-04-20
 
 - Fix broken packaging in [#7](https://github.com/ArchSense/archsense-mono/pull/7)
