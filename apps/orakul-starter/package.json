@@ -45,7 +45,7 @@
   },
   "dependencies": {
     "@archsense/orakul-ui": "^0.2.0",
-    "@archsense/scout": "^0.2.3",
+    "@archsense/scout": "^0.2.4-rc1",
     "@nestjs/common": "^9.0.0",
     "@nestjs/config": "^2.3.1",
     "@nestjs/core": "^9.0.0",

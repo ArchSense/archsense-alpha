@@ -1,0 +1,8 @@
+.DBNode {
+  opacity: 0.65;
+  width: 150px;
+}
+
+.DBNode .react-flow__handle-top {
+  top: -7px;
+}

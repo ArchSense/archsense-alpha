@@ -6,6 +6,8 @@ import { ParsedResult, StaticDependenciesTree } from '../types/output';
 
 const TS_CONFIG_FILE_NAME = 'tsconfig.json';
 const SUPPORTED_CLASS_DECORATORS = ['Controller', 'Resolver'];
+const SUPPORTED_DB_DECORATORS = ['Entity', 'Schema'];
+const SUPPORTED_MODULE_DECORATORS = ['Module'];
 const KNOWN_API_VERBS = ['Put', 'Get', 'Post', 'Delete', 'Patch', 'Query', 'Mutation'];
 
 const getClosestTsConfigFile = (
@@ -42,7 +44,26 @@ const removeQuotes = (name: string) => {
   return name.trim().split('').filter(isNotQuote).filter(isNotBreakLine).join('');
 };
 
+const buildDecoratorsMap = (decorators: Decorator[]) => {
+  return decorators.reduce((acc, curr) => {
+    const name = curr.getName();
+    if (SUPPORTED_MODULE_DECORATORS.includes(name)) {
+      acc['module'] = curr;
+    }
+    if (SUPPORTED_CLASS_DECORATORS.includes(name)) {
+      acc['controller'] = curr;
+    }
+    if (SUPPORTED_DB_DECORATORS.includes(name)) {
+      acc['db'] = curr;
+    }
+    return acc;
+  }, {} as any);
+}
+
 const getApiHandlerPath = (decorator: Decorator): string => {
+  if (!decorator) {
+    return '';
+  }
   const args = decorator.getArguments();
   if (args.length) {
     const arg = removeQuotes(args[0].getText());
@@ -105,10 +126,14 @@ export const buildStaticInsights = async (
 
     sourceFile
       ?.getImportDeclarations()
-      .map((declaration) => declaration.getModuleSpecifierSourceFile())
-      .filter((sf) => sf && !sf.isFromExternalLibrary())
-      .forEach((sf) => {
-        const dependencyPath = sf?.getFilePath();
+      .map((declaration) => {
+        return {
+          sourceFile: declaration.getModuleSpecifierSourceFile()
+        }
+      })
+      .filter(({sourceFile}) => sourceFile && !sourceFile.isFromExternalLibrary())
+      .forEach(({sourceFile}) => {
+        const dependencyPath = sourceFile?.getFilePath();
         if (!dependencyPath) {
           return;
         }
@@ -121,16 +146,15 @@ export const buildStaticInsights = async (
       .filter((cls) => cls.getExportKeyword())
       .forEach((cls) => {
         const className = cls.getName() as string;
-        const apiHandler = cls
-          .getDecorators()
-          .filter((d) => SUPPORTED_CLASS_DECORATORS.includes(d.getName()));
+        const decorators = buildDecoratorsMap(cls.getDecorators());
 
-        const apiPath = apiHandler.length > 0 ? getApiHandlerPath(apiHandler[0]) : '';
+        const apiPath = getApiHandlerPath(decorators['controller']);
 
         graph.get(filePath)?.exports.push({
           id: className,
           apiPath,
           name: className,
+          tags: Object.keys(decorators),
           members: [...cls.getInstanceMethods(), ...cls.getStaticMethods()].map((method) => {
             const methodName = method.getName();
             const apiHandlerProps = getApiHandlerMethod(method, apiPath);

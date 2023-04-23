@@ -12,7 +12,7 @@ import ReactFlow, {
 } from 'reactflow';
 import 'reactflow/dist/style.css';
 import { Levels } from '../../services/levels';
-import ActualNode from './ActualNode/ActualNode';
+import ActualNode from './Node/ActualNode';
 import { buildEdge } from './Edge/Edge';
 import {
   initAbstractEdges,
@@ -22,19 +22,21 @@ import {
   initModuleEdges,
   initModuleNodes,
 } from './initialElements';
-import { buildPlannedNode } from './Node/Node';
-import PlannedNode from './PlannedNode/PlannedNode';
+import { SceneNodeType, buildPlannedNode } from './Node/Node';
+import PlannedNode from './Node/PlannedNode';
 import './Scene.css';
 import useAutoLayout from './useAutoLayout';
 import Views from './Views/Views';
+import DBNode from './Node/DBNode';
 
 const proOptions = {
   hideAttribution: true,
 };
 
 const nodeTypes = {
-  actual: ActualNode,
-  planned: PlannedNode,
+  [SceneNodeType.ACTUAL]: ActualNode,
+  [SceneNodeType.DB]: DBNode,
+  [SceneNodeType.PLANNED]: PlannedNode,
 };
 
 const DEFAULT_DIRECTION = 'TB';
