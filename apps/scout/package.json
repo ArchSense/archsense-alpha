@@ -1,6 +1,6 @@
 {
   "name": "@archsense/scout",
-  "version": "0.2.3",
+  "version": "0.2.4-rc1",
   "description": "Generate services graph",
   "main": "dist/index.js",
   "bin": {
@@ -51,5 +51,15 @@
     "commander": "^10.0.0",
     "ts-morph": "^18.0.0",
     "typescript": "^4.9.5"
+  },
+  "prettier": {
+    "bracketSpacing": true,
+    "printWidth": 100,
+    "requirePragma": false,
+    "semi": true,
+    "singleQuote": true,
+    "tabWidth": 2,
+    "trailingComma": "all",
+    "useTabs": false
   }
 }

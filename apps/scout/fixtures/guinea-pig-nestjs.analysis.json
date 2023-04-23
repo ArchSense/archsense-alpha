@@ -22,8 +22,11 @@
         "exports": [
           {
             "id": "AppModule",
-            "name": "AppModule",
             "apiPath": "",
+            "name": "AppModule",
+            "tags": [
+              "module"
+            ],
             "members": []
           }
         ]
@@ -40,8 +43,11 @@
         "exports": [
           {
             "id": "InvoicesModule",
-            "name": "InvoicesModule",
             "apiPath": "",
+            "name": "InvoicesModule",
+            "tags": [
+              "module"
+            ],
             "members": []
           }
         ]
@@ -58,8 +64,9 @@
         "exports": [
           {
             "id": "InvoicesService",
-            "name": "InvoicesService",
             "apiPath": "",
+            "name": "InvoicesService",
+            "tags": [],
             "members": [
               {
                 "id": "InvoicesService.list",
@@ -86,8 +93,9 @@
         "exports": [
           {
             "id": "StorageService",
-            "name": "StorageService",
             "apiPath": "",
+            "name": "StorageService",
+            "tags": [],
             "members": [
               {
                 "id": "StorageService.getInvoices",
@@ -114,8 +122,11 @@
         "exports": [
           {
             "id": "Invoice",
-            "name": "Invoice",
             "apiPath": "",
+            "name": "Invoice",
+            "tags": [
+              "db"
+            ],
             "members": []
           }
         ]
@@ -127,8 +138,9 @@
         "exports": [
           {
             "id": "CreateInvoiceDto",
-            "name": "CreateInvoiceDto",
             "apiPath": "",
+            "name": "CreateInvoiceDto",
+            "tags": [],
             "members": []
           }
         ]
@@ -140,8 +152,9 @@
         "exports": [
           {
             "id": "IdsService",
-            "name": "IdsService",
             "apiPath": "",
+            "name": "IdsService",
+            "tags": [],
             "members": [
               {
                 "id": "IdsService.generateId",
@@ -163,20 +176,23 @@
         "exports": [
           {
             "id": "InvoicesController",
-            "name": "InvoicesController",
             "apiPath": "/invoices",
+            "name": "InvoicesController",
+            "tags": [
+              "controller"
+            ],
             "members": [
               {
                 "id": "InvoicesController.getAllInvoices",
                 "name": "getAllInvoices",
-                "method": "GET",
-                "apiPath": "/invoices/"
+                "apiPath": "/invoices/",
+                "method": "GET"
               },
               {
                 "id": "InvoicesController.addInvoice",
                 "name": "addInvoice",
-                "method": "PUT",
-                "apiPath": "/invoices/"
+                "apiPath": "/invoices/",
+                "method": "PUT"
               }
             ]
           }
@@ -191,8 +207,9 @@
         "exports": [
           {
             "id": "AppService",
-            "name": "AppService",
             "apiPath": "",
+            "name": "AppService",
+            "tags": [],
             "members": [
               {
                 "id": "AppService.getHello",
@@ -213,20 +230,23 @@
         "exports": [
           {
             "id": "AppController",
-            "name": "AppController",
             "apiPath": "/",
+            "name": "AppController",
+            "tags": [
+              "controller"
+            ],
             "members": [
               {
                 "id": "AppController.ping",
                 "name": "ping",
-                "method": "GET",
-                "apiPath": "//"
+                "apiPath": "//",
+                "method": "GET"
               },
               {
                 "id": "AppController.getHello",
                 "name": "getHello",
-                "method": "GET",
-                "apiPath": "//hello"
+                "apiPath": "//hello",
+                "method": "GET"
               }
             ]
           }

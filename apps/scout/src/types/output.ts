@@ -10,6 +10,7 @@ export type ParsedResult = {
     id: string;
     name?: string;
     apiPath?: string;
+    tags?: string[];
     members?: {
       id: string;
       name?: string;

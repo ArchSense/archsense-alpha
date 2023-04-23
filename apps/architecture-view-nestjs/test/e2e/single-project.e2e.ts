@@ -14,14 +14,16 @@ describe('Architecture view extension', () => {
     await browser.pause(500);
     const archWebview = await workbench.getWebviewByTitle('Architecture View');
     await archWebview.open();
-    await $('.react-flow__node-actual').waitForExist({
+    await $('.ActualNode').waitForExist({
       timeout: 3 * 60 * 1000,
       timeoutMsg: 'Client took too long to load',
       interval: 500,
     });
-    const nodes = await $$('.react-flow__node-actual');
-    expect(nodes.length).toBe(7);
-    const nodesText = await Promise.all(nodes.map((node) => node.getText()));
+    const serviceNodes = await $$('.ActualNode');
+    const dbNodes = await $$('.DBNode');
+    expect(serviceNodes.length).toBe(6);
+    expect(dbNodes.length).toBe(1);
+    const nodesText = await Promise.all(serviceNodes.map((node) => node.getText()));
     expect(nodesText).toContain('AppService\ngetHello');
   });
 });

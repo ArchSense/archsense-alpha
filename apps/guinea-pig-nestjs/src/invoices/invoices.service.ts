@@ -1,7 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { CreateInvoiceDto } from './dto/create-invoice.dto';
 import { IdsService } from 'src/ids/ids.service';
-// import { IdsService } from '../ids/ids.service';
 import { Invoice } from './model/invoice';
 import { StorageService } from '../storage/storage.service';
 import { Span } from 'nestjs-otel';
