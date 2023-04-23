@@ -1,7 +1,6 @@
 ---
-# These are optional elements. Feel free to remove any of them.
 status: accepted
-date: 2023-04-19 when the decision was last updated 
+date: 2023-04-19
 ---
 # Use Monorepo
 
