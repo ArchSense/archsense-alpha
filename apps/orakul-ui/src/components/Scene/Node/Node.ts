@@ -9,7 +9,7 @@ export enum SceneNodeType {
 
 const paintClass = (fileName: string) => {
   const parts = fileName.split(/(?=[A-Z])/);
-  const type = (parts.length && parts.at(-1)) ? parts.at(-1)?.toLowerCase() : void 0;
+  const type = parts.length && parts.at(-1) ? parts.at(-1)?.toLowerCase() : void 0;
   switch (type) {
     case 'controller':
     case 'resolver':
@@ -27,11 +27,11 @@ export const buildDBNode = () => {
     type: SceneNodeType.DB,
     position: { x: -100, y: -100 },
     data: { label: 'Database' },
-    className: 'DBNode'
+    className: 'DBNode',
   };
 };
 
-export const buildActualNode = ({ data, id }: { data: any, id: FileIdentifier }): Node => {
+export const buildActualNode = ({ data, id }: { data: any; id: FileIdentifier }): Node => {
   const newNode: Node = {
     id: id,
     position: { x: -100, y: -100 },

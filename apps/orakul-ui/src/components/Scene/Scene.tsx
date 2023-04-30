@@ -49,13 +49,7 @@ interface SceneProps {
   view: Levels;
 }
 
-const Scene = ({
-  data,
-  onNodeEnter,
-  onNodeSelect,
-  onViewChange,
-  view,
-}: SceneProps) => {
+const Scene = ({ data, onNodeEnter, onNodeSelect, onViewChange, view }: SceneProps) => {
   useAutoLayout({ direction: DEFAULT_DIRECTION });
 
   const [nodes, setNodes, onNodesChange] = useNodesState([]);
@@ -105,14 +99,14 @@ const Scene = ({
         setEdges([...edges]);
       }
     },
-    [edges, setEdges]
+    [edges, setEdges],
   );
 
   const onDoubleClickHandler = useCallback(
     (_: any, node: Node) => {
       onNodeEnter && onNodeEnter(node.id);
     },
-    [onNodeEnter]
+    [onNodeEnter],
   );
 
   const highlightEdges = useCallback(
@@ -120,12 +114,11 @@ const Scene = ({
       setEdges((edges) =>
         edges.map((edge) => ({
           ...edge,
-          selected:
-            edge.source === selectedNode.id || edge.target === selectedNode.id,
-        }))
+          selected: edge.source === selectedNode.id || edge.target === selectedNode.id,
+        })),
       );
     },
-    [setEdges]
+    [setEdges],
   );
 
   const removeHighlightEdges = useCallback(() => {
@@ -138,7 +131,7 @@ const Scene = ({
       selectedNode ? highlightEdges(selectedNode) : removeHighlightEdges();
       selectedNode && onNodeSelect && onNodeSelect(selectedNode.id);
     },
-    [highlightEdges, removeHighlightEdges, onNodeSelect]
+    [highlightEdges, removeHighlightEdges, onNodeSelect],
   );
 
   return (
