@@ -1,0 +1,12 @@
+lockfileVersion: '6.0'
+
+dependencies:
+  madr:
+    specifier: ^3.0.0
+    version: 3.0.0
+
+packages:
+
+  /madr@3.0.0:
+    resolution: {integrity: sha512-gb4ML7LGDARy2EY0WT5rxCUJcXvColIbNCeyoxcj3s/p1qdbpD3UsZrC7hkFkwOBukwnzx87Cu81HwTLvisTZg==}
+    dev: false

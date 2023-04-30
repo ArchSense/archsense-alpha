@@ -49,7 +49,13 @@ interface SceneProps {
   view: Levels;
 }
 
-const Scene = ({ data, onNodeEnter, onNodeSelect, onViewChange, view }: SceneProps) => {
+const Scene = ({
+  data,
+  onNodeEnter,
+  onNodeSelect,
+  onViewChange,
+  view,
+}: SceneProps) => {
   useAutoLayout({ direction: DEFAULT_DIRECTION });
 
   const [nodes, setNodes, onNodesChange] = useNodesState([]);
@@ -96,17 +102,17 @@ const Scene = ({ data, onNodeEnter, onNodeSelect, onViewChange, view }: ScenePro
     ({ source, target }: Connection) => {
       const newEdge = buildEdge(source, target);
       if (newEdge) {
-        setEdges([...edges, ]);
+        setEdges([...edges]);
       }
     },
-    [edges, setEdges],
+    [edges, setEdges]
   );
 
   const onDoubleClickHandler = useCallback(
     (_: any, node: Node) => {
       onNodeEnter && onNodeEnter(node.id);
     },
-    [onNodeEnter],
+    [onNodeEnter]
   );
 
   const highlightEdges = useCallback(
@@ -114,11 +120,12 @@ const Scene = ({ data, onNodeEnter, onNodeSelect, onViewChange, view }: ScenePro
       setEdges((edges) =>
         edges.map((edge) => ({
           ...edge,
-          selected: edge.source === selectedNode.id || edge.target === selectedNode.id,
-        })),
+          selected:
+            edge.source === selectedNode.id || edge.target === selectedNode.id,
+        }))
       );
     },
-    [setEdges],
+    [setEdges]
   );
 
   const removeHighlightEdges = useCallback(() => {
@@ -126,12 +133,12 @@ const Scene = ({ data, onNodeEnter, onNodeSelect, onViewChange, view }: ScenePro
   }, [setEdges]);
 
   const onSelectionChangeHandler = useCallback(
-    ({ nodes }: {nodes: Node[], edges: Edge[]}) => {
+    ({ nodes }: { nodes: Node[]; edges: Edge[] }) => {
       const selectedNode = nodes[0];
       selectedNode ? highlightEdges(selectedNode) : removeHighlightEdges();
       selectedNode && onNodeSelect && onNodeSelect(selectedNode.id);
     },
-    [highlightEdges, removeHighlightEdges, onNodeSelect],
+    [highlightEdges, removeHighlightEdges, onNodeSelect]
   );
 
   return (
@@ -146,6 +153,7 @@ const Scene = ({ data, onNodeEnter, onNodeSelect, onViewChange, view }: ScenePro
         onConnect={onEdgeAddHandler}
         onNodesChange={onNodesChange}
         onEdgesChange={onEdgesChange}
+        selectNodesOnDrag={false}
         onSelectionChange={onSelectionChangeHandler}
         onNodeDoubleClick={onDoubleClickHandler}
       >
