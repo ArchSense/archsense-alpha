@@ -96,7 +96,7 @@ const Scene = ({ data, onNodeEnter, onNodeSelect, onViewChange, view }: ScenePro
     ({ source, target }: Connection) => {
       const newEdge = buildEdge(source, target);
       if (newEdge) {
-        setEdges([...edges, ]);
+        setEdges([...edges]);
       }
     },
     [edges, setEdges],
@@ -126,7 +126,7 @@ const Scene = ({ data, onNodeEnter, onNodeSelect, onViewChange, view }: ScenePro
   }, [setEdges]);
 
   const onSelectionChangeHandler = useCallback(
-    ({ nodes }: {nodes: Node[], edges: Edge[]}) => {
+    ({ nodes }: { nodes: Node[]; edges: Edge[] }) => {
       const selectedNode = nodes[0];
       selectedNode ? highlightEdges(selectedNode) : removeHighlightEdges();
       selectedNode && onNodeSelect && onNodeSelect(selectedNode.id);
@@ -146,6 +146,7 @@ const Scene = ({ data, onNodeEnter, onNodeSelect, onViewChange, view }: ScenePro
         onConnect={onEdgeAddHandler}
         onNodesChange={onNodesChange}
         onEdgesChange={onEdgesChange}
+        selectNodesOnDrag={false}
         onSelectionChange={onSelectionChangeHandler}
         onNodeDoubleClick={onDoubleClickHandler}
       >

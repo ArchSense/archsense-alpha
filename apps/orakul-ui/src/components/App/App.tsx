@@ -75,7 +75,7 @@ function App() {
 
   const onNodeSelect = useDebouncedCallback((nodeId: string) => {
     if (config.standalone) {
-      fetchSourceCode(nodeId)
+      fetchSourceCode(nodeId);
     } else {
       (window as any).vscode.postMessage({ type: 'openFile', payload: nodeId });
     }
@@ -112,16 +112,14 @@ function App() {
   };
 
   if (!analysisResults) {
-    return (
-      <FullScreenLoader />
-    );
+    return <FullScreenLoader />;
   }
 
   return (
     <div className="App" ref={paneContainer} onMouseMove={onResizing} onMouseUp={onResizeEnd}>
       <aside className="Menu" ref={paneLeft}>
         <Scenarios
-          serviceId={activeView === Levels.Components ? selectedServiceId as string : undefined}
+          serviceId={activeView === Levels.Components ? (selectedServiceId as string) : undefined}
           components={analysisResults[selectedServiceId as string]?.components}
         />
       </aside>

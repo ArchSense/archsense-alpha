@@ -5,7 +5,7 @@ const isResolver = (file: ParsedResult) => file.name.endsWith('.resolver');
 
 interface ScenariosProps {
   serviceId?: string;
-  components: { [key: FileIdentifier]: ParsedResult }
+  components: { [key: FileIdentifier]: ParsedResult };
 }
 
 const Scenarios = ({ serviceId, components }: ScenariosProps) => {

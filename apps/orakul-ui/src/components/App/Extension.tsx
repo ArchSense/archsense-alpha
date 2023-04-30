@@ -58,9 +58,7 @@ function App() {
   };
 
   if (!analysisResults) {
-    return (
-      <FullScreenLoader />
-    );
+    return <FullScreenLoader />;
   }
 
   return (

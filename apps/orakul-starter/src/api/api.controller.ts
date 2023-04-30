@@ -5,7 +5,7 @@ import { ScoutService } from '../scout/scout.service';
 
 @Controller('api')
 export class ApiController {
-  constructor(private scoutService: ScoutService) {}
+  constructor(private scoutService: ScoutService) { }
 
   @Get('/analysis')
   async fetchAnalysis() {
@@ -13,10 +13,10 @@ export class ApiController {
       const res = await this.scoutService.getAnalysis();
       return res;
     } catch (error) {
-      throw new BadRequestException(error.message, {
+      throw new BadRequestException(error.message, JSON.stringify({
         cause: new Error(),
         description: 'Error during parsing',
-      });
+      }));
     }
   }
 

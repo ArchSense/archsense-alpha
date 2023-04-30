@@ -8,10 +8,12 @@ const isModule = (fileName: string) => fileName.endsWith('.module');
 const isDto = (fileName: string) => fileName.endsWith('.dto');
 const hasPublicMethods = (exports: unknown[]) => exports.length > 0;
 const isDB = (file: ParsedResult) => {
-  return file.exports.some((cls) => cls.tags?.includes('db'))
+  return file.exports.some((cls) => cls.tags?.includes('db'));
 };
 
-const sanitizeComponents = (components: { [key: FileIdentifier]: ParsedResult }): Array<ParsedResult> => {
+const sanitizeComponents = (components: {
+  [key: FileIdentifier]: ParsedResult;
+}): Array<ParsedResult> => {
   return Object.values(components)
     .filter((component: any) => hasPublicMethods(component.exports))
     .filter((component: any) => !isDto(component.name))
@@ -39,15 +41,18 @@ export const initModuleEdges = (data: { [key: FileIdentifier]: ParsedResult }): 
 
 export const initCodeNodes = (data: { [key: FileIdentifier]: ParsedResult }): Node[] => {
   const relevantFiles = sanitizeComponents(data);
-  const dbFiles = [], classFiles = [];
+  const dbFiles = [],
+    classFiles = [];
   for (let file of relevantFiles) {
     if (isDB(file)) {
-      dbFiles.push(file)
+      dbFiles.push(file);
     } else {
-      classFiles.push(file)
+      classFiles.push(file);
     }
   }
-  const nodes = classFiles.map(({ exports, id }) => buildActualNode({ id, data: exports[0] ?? { label: id } }));
+  const nodes = classFiles.map(({ exports, id }) =>
+    buildActualNode({ id, data: exports[0] ?? { label: id } }),
+  );
   if (dbFiles.length) {
     nodes.push(buildDBNode());
   }
@@ -57,8 +62,12 @@ export const initCodeNodes = (data: { [key: FileIdentifier]: ParsedResult }): No
 export const initCodeEdges = (data: { [key: FileIdentifier]: ParsedResult }): Edge[] => {
   const relevantFiles = sanitizeComponents(data);
   const edges = [];
-  const establishConnection = (sourceId: string, targetId: string, acc: Edge[]): Edge | undefined => {
-    const realTargetId = isDB(data[targetId]) ? 'db' : targetId; 
+  const establishConnection = (
+    sourceId: string,
+    targetId: string,
+    acc: Edge[],
+  ): Edge | undefined => {
+    const realTargetId = isDB(data[targetId]) ? 'db' : targetId;
     if (!edgeExists(sourceId, realTargetId, acc)) {
       return buildEdge(sourceId, realTargetId) as Edge;
     }
@@ -73,10 +82,10 @@ export const initCodeEdges = (data: { [key: FileIdentifier]: ParsedResult }): Ed
       // edges.push(buildEdge(isDbFile ?  'db' : file.id, isDbDep ? 'db' : dep) as Edge)
     }
   }
-  edges.map(({id}) => console.log(`${id}\n`));
+  edges.map(({ id }) => console.log(`${id}\n`));
   return edges;
   // return sanitizeComponents(data).reduce((acc, { imports, id }) => {
-    // const edges = imports.map((dep: FileIdentifier) => buildEdge(id, dep));
+  // const edges = imports.map((dep: FileIdentifier) => buildEdge(id, dep));
   //   acc.push(...edges as Edge[]);
   //   return acc;
   // }, [] as Edge[]);
