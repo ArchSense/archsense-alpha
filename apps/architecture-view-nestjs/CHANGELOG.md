@@ -2,6 +2,10 @@
 
 All notable changes to the "architecture-view-nestjs" extension will be documented in this file.
 
+## [0.6.1] - 2023-04-30
+
+- Fix opening file on node drag [#10](https://github.com/ArchSense/archsense-mono/pull/10)
+
 ## [0.6.0] - 2023-04-23
 
 - Support DB entity [#8](https://github.com/ArchSense/archsense-mono/pull/8)
