@@ -1,7 +1,7 @@
 export const webviewTabTitle = 'Architecture View';
 export const quickPickerPlaceholder =
   'Looks like you have several projects here, which one would you like to see?';
-export const telemetryInstrumentationKey = 'ffe1af55-30a6-42eb-abea-3da6cfa00cf5';
+export const telemetryInstrumentationKey = '5b5a5f6c-71fe-436a-917c-840fa195281e';
 export const nestJsMainGlobPattern = '**/src/main.ts';
 
 export const notifications = {

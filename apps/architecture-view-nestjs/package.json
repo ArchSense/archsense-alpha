@@ -3,7 +3,7 @@
   "publisher": "archsense",
   "displayName": "Architecture View NestJS",
   "description": "The architecture view for NestJS application",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "repository": {
     "type": "git",
     "url": "https://github.com/ArchSense/archsense-mono"
