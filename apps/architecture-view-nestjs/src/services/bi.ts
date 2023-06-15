@@ -57,10 +57,3 @@ export const sendEvent = (event: BIEvent): symbol | undefined => {
     return addNewMeasurement();
   }
 };
-
-export const sendException = (error: Error) => {
-  console.error(error);
-  if (reporter) {
-    reporter.sendTelemetryException(error);
-  }
-};

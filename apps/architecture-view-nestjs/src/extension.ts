@@ -1,6 +1,6 @@
 import * as vscode from 'vscode';
 import ArchitectureViewPanel from './panel';
-import { BI_ACTIONS, initReporter, sendEvent, sendException } from './services/bi';
+import { BI_ACTIONS, initReporter, sendEvent } from './services/bi';
 import { analyze } from './services/parser';
 import { nestJsMainGlobPattern, notifications, quickPickerPlaceholder } from './consts';
 import { sep } from 'path';
@@ -63,7 +63,6 @@ export function activate(context: vscode.ExtensionContext) {
         });
       } catch (error) {
         sendEvent({ action: BI_ACTIONS.parserError, payload: error });
-        sendException(error as Error);
         vscode.window.showErrorMessage(notifications.analysisError);
       }
     },
