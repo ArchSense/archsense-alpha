@@ -9,7 +9,7 @@
   </a>
 </p>
 
-## Mission
+## Why?
 
 ### We make product decisions based on inaccurate knowledge
 As a software company, it can be difficult to accurately explain or demonstrate how the product is built.
