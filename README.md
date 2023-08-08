@@ -24,7 +24,7 @@ We are on the path to building a solution that allows any relevant stakeholder (
 | App                      | Version | Description                                                                           |
 |--------------------------|:-------:|---------------------------------------------------------------------------------------|
 | Guinea Pig NestJS        |   N/A   | An example project with NestJs project. Used be Scout and VSCode extension for tests  |
-| Scout                    |  [![NPM version](https://badge.fury.io/js/@archsense%2Fscout.svg)](http://badge.fury.io/js/bytes-counter)  | Provides the static analysis of TypeScript project                                    |
+| Scout                    |  [![NPM version](https://badge.fury.io/js/@archsense%2Fscout.svg)](https://badge.fury.io/js/@archsense%2Fscout)  | Provides the static analysis of TypeScript project                                    |
 | Orakul UI                |  [![npm version](https://badge.fury.io/js/@archsense%2Forakul-ui.svg)](https://badge.fury.io/js/@archsense%2Forakul-ui)  | Visualizes the static analysis results                                                |
 | Orakul Started           |  [![npm version](https://badge.fury.io/js/@archsense%2Forakul-starter.svg)](https://badge.fury.io/js/@archsense%2Forakul-starter)  | Server for the UI                                                                     |
 | Architecture View NestJS |  [![version](https://img.shields.io/vscode-marketplace/v/archsense.architecture-view-nestjs.svg?label=marketplace)](https://marketplace.visualstudio.com/items?itemName=archsense.architecture-view-nestjs)  | VSCode extension that uses Scout and Orakul UI to visualize the architecture          |
