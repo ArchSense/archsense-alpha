@@ -58,7 +58,7 @@ const buildDecoratorsMap = (decorators: Decorator[]) => {
     }
     return acc;
   }, {} as any);
-}
+};
 
 const getApiHandlerPath = (decorator: Decorator): string => {
   if (!decorator) {
@@ -128,11 +128,11 @@ export const buildStaticInsights = async (
       ?.getImportDeclarations()
       .map((declaration) => {
         return {
-          sourceFile: declaration.getModuleSpecifierSourceFile()
-        }
+          sourceFile: declaration.getModuleSpecifierSourceFile(),
+        };
       })
-      .filter(({sourceFile}) => sourceFile && !sourceFile.isFromExternalLibrary())
-      .forEach(({sourceFile}) => {
+      .filter(({ sourceFile }) => sourceFile && !sourceFile.isFromExternalLibrary())
+      .forEach(({ sourceFile }) => {
         const dependencyPath = sourceFile?.getFilePath();
         if (!dependencyPath) {
           return;
@@ -155,15 +155,17 @@ export const buildStaticInsights = async (
           apiPath,
           name: className,
           tags: Object.keys(decorators),
-          members: [...cls.getInstanceMethods(), ...cls.getStaticMethods()].map((method) => {
-            const methodName = method.getName();
-            const apiHandlerProps = getApiHandlerMethod(method, apiPath);
-            return {
-              id: `${className}.${methodName}`,
-              name: methodName,
-              ...apiHandlerProps,
-            };
-          }),
+          members: [...cls.getInstanceMethods(), ...cls.getStaticMethods()]
+            .filter((method) => !method.hasModifier(ts.SyntaxKind.PrivateKeyword))
+            .map((method) => {
+              const methodName = method.getName();
+              const apiHandlerProps = getApiHandlerMethod(method, apiPath);
+              return {
+                id: `${className}.${methodName}`,
+                name: methodName,
+                ...apiHandlerProps,
+              };
+            }),
         });
       });
   }
