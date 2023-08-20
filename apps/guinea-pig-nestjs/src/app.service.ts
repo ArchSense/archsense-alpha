@@ -1,5 +1,5 @@
-import { Injectable } from "@nestjs/common";
-import { Result } from "./app.controller";
+import { Injectable } from '@nestjs/common';
+import { Result } from './app.controller';
 
 @Injectable()
 export class AppService {
@@ -9,6 +9,6 @@ export class AppService {
 
   // used to ensure private methods are filtered by @archsense/scout
   private getWorld() {
-    return "World";
+    return 'World';
   }
 }
