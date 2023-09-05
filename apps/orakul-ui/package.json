@@ -2,7 +2,7 @@
   "name": "@archsense/orakul-ui",
   "description": "Visualize your architecture that make sense",
   "author": "Sergey Bolshchikov <sergey@bolshchikov.net>",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "publishConfig": {
     "access": "public"
   },
@@ -17,7 +17,7 @@
     "build"
   ],
   "dependencies": {
-    "@archsense/scout": "^0.2.4",
+    "@archsense/scout": "^0.2.5",
     "@monaco-editor/react": "^4.4.6",
     "@rottitime/react-hook-message-event": "^1.0.10",
     "@vscode/webview-ui-toolkit": "^1.2.2",
