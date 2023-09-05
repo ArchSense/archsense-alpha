@@ -2,6 +2,10 @@
 
 All notable changes to the "architecture-view-nestjs" extension will be documented in this file.
 
+## [0.6.3] - 2023-09-05
+
+- Do not show `private` and `protected` methods in classes [#17](https://github.com/ArchSense/archsense-mono/pull/17), [#19](https://github.com/ArchSense/archsense-mono/pull/19)
+
 ## [0.6.1] - 2023-04-30
 
 - Fix opening file on node drag [#10](https://github.com/ArchSense/archsense-mono/pull/10)
