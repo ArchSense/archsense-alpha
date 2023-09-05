@@ -11,4 +11,8 @@ export class AppService {
   private getWorld() {
     return 'World';
   }
+
+  protected someProtectedMethod() {
+    return 'test';
+  }
 }

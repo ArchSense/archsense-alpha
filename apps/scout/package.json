@@ -1,6 +1,6 @@
 {
   "name": "@archsense/scout",
-  "version": "0.2.4",
+  "version": "0.2.5-rc.0",
   "description": "Generate services graph",
   "main": "dist/index.js",
   "bin": {
@@ -19,7 +19,8 @@
     "build": "tsc",
     "test": "jest",
     "format": "prettier --write \"src/**/*.ts\"",
-    "release": "npm run build && npm publish"
+    "release": "npm run build && npm publish",
+    "rc": "npm run build && npm version prerelease --preid=rc && npm publish --tag next"
   },
   "repository": {
     "type": "git",
