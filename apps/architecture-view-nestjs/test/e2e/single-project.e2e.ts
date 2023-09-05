@@ -24,6 +24,6 @@ describe('Architecture view extension', () => {
     expect(serviceNodes.length).toBe(6);
     expect(dbNodes.length).toBe(1);
     const nodesText = await Promise.all(serviceNodes.map((node) => node.getText()));
-    expect(nodesText).toContain('AppService\ngetHello\ngetWorld');
+    expect(nodesText).toContain('AppService\ngetHello');
   });
 });

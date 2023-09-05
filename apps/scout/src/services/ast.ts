@@ -157,6 +157,7 @@ export const buildStaticInsights = async (
           tags: Object.keys(decorators),
           members: [...cls.getInstanceMethods(), ...cls.getStaticMethods()]
             .filter((method) => !method.hasModifier(ts.SyntaxKind.PrivateKeyword))
+            .filter((method) => !method.hasModifier(ts.SyntaxKind.ProtectedKeyword))
             .map((method) => {
               const methodName = method.getName();
               const apiHandlerProps = getApiHandlerMethod(method, apiPath);
