@@ -1,6 +1,6 @@
 {
   "name": "@archsense/orakul-starter",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Visualize your architecture that make sense",
   "author": "Sergey Bolshchikov <sergey@bolshchikov.net>",
   "publishConfig": {
