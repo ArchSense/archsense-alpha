@@ -1,6 +1,13 @@
 import dagre from 'dagre';
 import { useEffect } from 'react';
-import { Edge, Node, Position, ReactFlowState, useReactFlow, useStore } from 'reactflow';
+import {
+  Edge,
+  Node,
+  Position,
+  ReactFlowState,
+  useReactFlow,
+  useStore,
+} from 'reactflow';
 
 // the layout direction (T = top, R = right, B = bottom, L = left, TB = top to bottom, ...)
 export type Direction = 'TB' | 'LR' | 'RL' | 'BT';
@@ -21,7 +28,9 @@ const positionMap: Record<string, Position> = {
 
 const nodeCountSelector = (state: ReactFlowState) => state.nodeInternals.size;
 const nodesInitializedSelector = (state: ReactFlowState) =>
-  Array.from(state.nodeInternals.values()).every((node) => node.width && node.height);
+  Array.from(state.nodeInternals.values()).every(
+    node => node.width && node.height,
+  );
 
 function useAutoLayout(options: Options) {
   const { direction } = options;
@@ -53,8 +62,8 @@ function useAutoLayout(options: Options) {
 
     dagre.layout(dagreGraph);
 
-    setNodes((nodes) =>
-      nodes.map((node) => {
+    setNodes(nodes =>
+      nodes.map(node => {
         const { x, y } = dagreGraph.node(node.id);
 
         return {
@@ -66,8 +75,17 @@ function useAutoLayout(options: Options) {
       }),
     );
 
-    setEdges((edges) => edges.map((edge) => ({ ...edge, style: { opacity: 1 } })));
-  }, [nodeCount, nodesInitialized, getNodes, getEdges, setNodes, setEdges, fitView, direction]);
+    setEdges(edges => edges.map(edge => ({ ...edge, style: { opacity: 1 } })));
+  }, [
+    nodeCount,
+    nodesInitialized,
+    getNodes,
+    getEdges,
+    setNodes,
+    setEdges,
+    fitView,
+    direction,
+  ]);
 }
 
 export default useAutoLayout;

@@ -12,7 +12,7 @@ const ClassNode = ({ data }: ClassNodeProps) => {
       <Handle
         type="target"
         position={Position.Top}
-        onConnect={(params) => console.log('handle onConnect', params)}
+        onConnect={params => console.log('handle onConnect', params)}
       />
       <div>
         <b>{data.name}</b>
@@ -27,7 +27,7 @@ const ClassNode = ({ data }: ClassNodeProps) => {
       <Handle
         type="source"
         position={Position.Bottom}
-        onConnect={(params) => console.log('handle onConnect', params)}
+        onConnect={params => console.log('handle onConnect', params)}
       />
     </>
   );

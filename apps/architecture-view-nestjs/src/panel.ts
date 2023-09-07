@@ -150,10 +150,10 @@ export default class ArchitectureViewPanel {
 
   private _getHtmlForWebview(webview: vscode.Webview) {
     const stylesUri = webview.asWebviewUri(
-      vscode.Uri.joinPath(this.extensionUri, 'out', 'static', 'css', 'main.css'),
+      vscode.Uri.joinPath(this.extensionUri, 'out', 'assets', 'index.css'),
     );
     const scriptUri = webview.asWebviewUri(
-      vscode.Uri.joinPath(this.extensionUri, 'out', 'static', 'js', 'main.js'),
+      vscode.Uri.joinPath(this.extensionUri, 'out', 'assets', 'index.js'),
     );
 
     const nonce = getNonce();
