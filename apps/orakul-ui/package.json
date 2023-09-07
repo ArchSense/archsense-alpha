@@ -22,8 +22,8 @@
   ],
   "scripts": {
     "dev": "cross-env VITE_EXTENSION=0 vite",
-    "build": "cross-env tsc && VITE_EXTENSION=0 vite build",
-    "build:extension": "cross-env tsc && VITE_EXTENSION=1 vite build --config vite.extension.config.ts",
+    "build": "cross-env tsc && cross-env VITE_EXTENSION=0 vite build",
+    "build:extension": "cross-env tsc && cross-env VITE_EXTENSION=1 vite build --config vite.extension.config.ts",
     "preview": "vite preview",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "format": "prettier --write \"src/**/*.{ts,tsx}\"",
