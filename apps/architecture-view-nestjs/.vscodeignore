@@ -1,4 +1,4 @@
-!out/static/**/*
+!out/assets/**/*
 .github
 .gitignore
 .vscode-test/**
