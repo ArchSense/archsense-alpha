@@ -12,8 +12,13 @@ import ReactFlow, {
 } from 'reactflow';
 import 'reactflow/dist/style.css';
 import { Levels } from '../../services/levels';
-import ActualNode from './Node/ActualNode';
 import { buildEdge } from './Edge/Edge';
+import ActualNode from './Node/ActualNode';
+import DBNode from './Node/DBNode';
+import { SceneNodeType } from './Node/Node';
+import PlannedNode from './Node/PlannedNode';
+import './Scene.css';
+import Views from './Views/Views';
 import {
   initAbstractEdges,
   initAbstractNodes,
@@ -22,12 +27,7 @@ import {
   initModuleEdges,
   initModuleNodes,
 } from './initialElements';
-import { SceneNodeType, buildPlannedNode } from './Node/Node';
-import PlannedNode from './Node/PlannedNode';
-import './Scene.css';
 import useAutoLayout from './useAutoLayout';
-import Views from './Views/Views';
-import DBNode from './Node/DBNode';
 
 const proOptions = {
   hideAttribution: true,
@@ -49,7 +49,13 @@ interface SceneProps {
   view: Levels;
 }
 
-const Scene = ({ data, onNodeEnter, onNodeSelect, onViewChange, view }: SceneProps) => {
+const Scene = ({
+  data,
+  onNodeEnter,
+  onNodeSelect,
+  onViewChange,
+  view,
+}: SceneProps) => {
   useAutoLayout({ direction: DEFAULT_DIRECTION });
 
   const [nodes, setNodes, onNodesChange] = useNodesState([]);
@@ -81,16 +87,15 @@ const Scene = ({ data, onNodeEnter, onNodeSelect, onViewChange, view }: ScenePro
     setEdges(edges(data));
   }, [view, setNodes, setEdges, data]);
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const onNodeAddHandler = useCallback(() => {
-    const name = window.prompt('Enter name');
-    if (!name) {
-      return;
-    }
-    const data = { name };
-    const newPlannedNode = buildPlannedNode({ data });
-    setNodes([...nodes, newPlannedNode]);
-  }, [nodes, setNodes]);
+  // const onNodeAddHandler = useCallback(() => {
+  //   const name = window.prompt('Enter name');
+  //   if (!name) {
+  //     return;
+  //   }
+  //   const data = { name };
+  //   const newPlannedNode = buildPlannedNode({ data });
+  //   setNodes([...nodes, newPlannedNode]);
+  // }, [nodes, setNodes]);
 
   const onEdgeAddHandler = useCallback(
     ({ source, target }: Connection) => {
@@ -111,10 +116,11 @@ const Scene = ({ data, onNodeEnter, onNodeSelect, onViewChange, view }: ScenePro
 
   const highlightEdges = useCallback(
     (selectedNode: Node) => {
-      setEdges((edges) =>
-        edges.map((edge) => ({
+      setEdges(edges =>
+        edges.map(edge => ({
           ...edge,
-          selected: edge.source === selectedNode.id || edge.target === selectedNode.id,
+          selected:
+            edge.source === selectedNode.id || edge.target === selectedNode.id,
         })),
       );
     },
@@ -122,7 +128,7 @@ const Scene = ({ data, onNodeEnter, onNodeSelect, onViewChange, view }: ScenePro
   );
 
   const removeHighlightEdges = useCallback(() => {
-    setEdges((edges) => edges.map((edge) => ({ ...edge, selected: false })));
+    setEdges(edges => edges.map(edge => ({ ...edge, selected: false })));
   }, [setEdges]);
 
   const onSelectionChangeHandler = useCallback(

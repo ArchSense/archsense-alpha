@@ -23,13 +23,15 @@ const Scenarios = ({ serviceId, components }: ScenariosProps) => {
       <h4>APIs</h4>
       {controllers.map(({ name, exports }, idx) => {
         let members = exports[0].members ?? [];
-        members = members.filter((member) => Boolean(member.method));
-        members = members.sort((a: any, b: any) => a.method.localeCompare(b.method));
+        members = members.filter(member => Boolean(member.method));
+        members = members.sort((a: any, b: any) =>
+          a.method.localeCompare(b.method),
+        );
 
         return (
           <div key={idx}>
             <h5>{name}</h5>
-            {members.map((member) => {
+            {members.map(member => {
               const scenario = `${member.method} ${
                 isResolver({ name } as any) ? member.name : member.apiPath
               }`;

@@ -1,13 +1,18 @@
 import { Levels } from '../../../services/levels';
 import './Views.css';
 
-const isEnabled = (currentIdx: number, renderIdx: number) => {
-  return currentIdx >= renderIdx;
-};
+const isEnabled = (currentIdx: number, renderIdx: number) =>
+  currentIdx >= renderIdx;
 
-const Views = ({ current, onChange }: { current: Levels; onChange: Function }) => {
+const Views = ({
+  current,
+  onChange,
+}: {
+  current: Levels;
+  onChange: (view: Levels) => void;
+}) => {
   const onClickHandler = (ev: React.MouseEvent) => {
-    onChange((ev.target as HTMLInputElement).value);
+    onChange((ev.target as HTMLInputElement).value as Levels);
   };
   return (
     <div className="react-flow__panel bottom views">
@@ -16,7 +21,10 @@ const Views = ({ current, onChange }: { current: Levels; onChange: Function }) =
         if (current === key) {
           classNames.push('selected');
         }
-        const disabled = !isEnabled(Object.values(Levels).indexOf(current), idx);
+        const disabled = !isEnabled(
+          Object.values(Levels).indexOf(current),
+          idx,
+        );
         return (
           <button
             key={key}

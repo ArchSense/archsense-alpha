@@ -1,6 +1,7 @@
+console.log(import.meta.env);
 const config = {
-  standalone: process.env.REACT_APP_EXTENSION === '0',
-  apiUrl: `${process.env.REACT_APP_SERVER_URL}/api`,
+  standalone: import.meta.env.VITE_EXTENSION === '0',
+  apiUrl: `${import.meta.env.VITE_SERVER_URL}/api`,
 };
 
 export default config;

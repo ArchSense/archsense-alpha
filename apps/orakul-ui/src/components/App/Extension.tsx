@@ -12,9 +12,13 @@ function App() {
     setAnalysisResults(payload as AnalysisResult);
   });
 
-  const [analysisResults, setAnalysisResults] = useState<AnalysisResult | null>(null);
+  const [analysisResults, setAnalysisResults] = useState<AnalysisResult | null>(
+    null,
+  );
   const [activeView, setActiveView] = useState(Levels.Components);
-  const [selectedServiceId, setSelectedServiceId] = useState<string | null>(null);
+  const [selectedServiceId, setSelectedServiceId] = useState<string | null>(
+    null,
+  );
 
   useEffect(() => {
     if (!analysisResults) {
@@ -27,7 +31,7 @@ function App() {
     }
   }, [analysisResults]);
 
-  const onNodeEnterHandler = (nodeId: string) => {
+  const onNodeEnterHandler = () => {
     const nextView = getNextLevel(activeView);
     if (!nextView) {
       return;
@@ -39,7 +43,7 @@ function App() {
   };
 
   const onNodeSelect = useDebouncedCallback((nodeId: string) => {
-    (window as any).vscode.postMessage({ type: 'openFile', payload: nodeId });
+    window.vscode.postMessage({ type: 'openFile', payload: nodeId });
   }, 100);
 
   const getSceneData = () => {

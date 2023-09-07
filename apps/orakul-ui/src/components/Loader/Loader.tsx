@@ -1,6 +1,5 @@
-import * as React from 'react';
-import { useState, useEffect } from 'react';
 import { VSCodeProgressRing } from '@vscode/webview-ui-toolkit/react';
+import { useEffect, useState } from 'react';
 import './Loader.css';
 
 export const FullScreenLoader = () => {
@@ -16,7 +15,9 @@ export const FullScreenLoader = () => {
   return (
     <div className="loader-container__full-screen">
       <VSCodeProgressRing />
-      {shouldShowMessage && <p>Looks like it takes longer than we expected...</p>}
+      {shouldShowMessage && (
+        <p>Looks like it takes longer than we expected...</p>
+      )}
     </div>
   );
 };

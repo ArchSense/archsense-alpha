@@ -7,7 +7,7 @@ const DBNode = () => {
       <Handle
         type="target"
         position={Position.Top}
-        onConnect={(params) => console.log('handle onConnect', params)}
+        onConnect={params => console.log('handle onConnect', params)}
       />
       <div>
         <svg
@@ -29,7 +29,7 @@ const DBNode = () => {
       <Handle
         type="source"
         position={Position.Bottom}
-        onConnect={(params) => console.log('handle onConnect', params)}
+        onConnect={params => console.log('handle onConnect', params)}
       />
     </>
   );

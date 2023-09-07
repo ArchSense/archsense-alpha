@@ -29,9 +29,13 @@ function App() {
   });
 
   const [sourceCode, setSourceCode] = useState('');
-  const [analysisResults, setAnalysisResults] = useState<AnalysisResult | null>(null);
+  const [analysisResults, setAnalysisResults] = useState<AnalysisResult | null>(
+    null,
+  );
   const [activeView, setActiveView] = useState(Levels.Components);
-  const [selectedServiceId, setSelectedServiceId] = useState<string | null>(null);
+  const [selectedServiceId, setSelectedServiceId] = useState<string | null>(
+    null,
+  );
 
   useEffect(() => {
     if (!config.standalone) {
@@ -62,7 +66,7 @@ function App() {
     }
   };
 
-  const onNodeEnterHandler = (nodeId: string) => {
+  const onNodeEnterHandler = () => {
     const nextView = getNextLevel(activeView);
     if (!nextView) {
       return;
@@ -77,7 +81,7 @@ function App() {
     if (config.standalone) {
       fetchSourceCode(nodeId);
     } else {
-      (window as any).vscode.postMessage({ type: 'openFile', payload: nodeId });
+      window.vscode.postMessage({ type: 'openFile', payload: nodeId });
     }
   }, 100);
 
@@ -116,14 +120,27 @@ function App() {
   }
 
   return (
-    <div className="App" ref={paneContainer} onMouseMove={onResizing} onMouseUp={onResizeEnd}>
+    <div
+      className="App"
+      ref={paneContainer}
+      onMouseMove={onResizing}
+      onMouseUp={onResizeEnd}
+    >
       <aside className="Menu" ref={paneLeft}>
         <Scenarios
-          serviceId={activeView === Levels.Components ? (selectedServiceId as string) : undefined}
+          serviceId={
+            activeView === Levels.Components
+              ? (selectedServiceId as string)
+              : undefined
+          }
           components={analysisResults[selectedServiceId as string]?.components}
         />
       </aside>
-      <div className="Splitter" data-index={0} onMouseDown={onResizeStart}></div>
+      <div
+        className="Splitter"
+        data-index={0}
+        onMouseDown={onResizeStart}
+      ></div>
       <main className="Main">
         <Scene
           data={getSceneData()}
@@ -133,7 +150,11 @@ function App() {
           view={activeView}
         />
       </main>
-      <div className="Splitter" data-index={1} onMouseDown={onResizeStart}></div>
+      <div
+        className="Splitter"
+        data-index={1}
+        onMouseDown={onResizeStart}
+      ></div>
       <aside className="Code" ref={paneRight}>
         <Editor sourceCode={sourceCode} />
       </aside>

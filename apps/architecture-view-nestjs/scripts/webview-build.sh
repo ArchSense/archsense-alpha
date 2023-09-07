@@ -8,4 +8,4 @@ then
     npm ci
 fi
 npm run build:extension
-cp -r ./build/static ../architecture-view-nestjs/out
+cp -r ./build/assets ../architecture-view-nestjs/out
