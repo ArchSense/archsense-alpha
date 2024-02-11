@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json.schemastore.org/nest-cli",
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "apps/guinea-pig-nestjs-monorepo/src",
+  "compilerOptions": {
+    "deleteOutDir": true,
+    "webpack": true,
+    "tsConfigPath": "apps/guinea-pig-nestjs-monorepo/tsconfig.app.json"
+  },
+  "monorepo": true,
+  "root": "apps/guinea-pig-nestjs-monorepo",
+  "projects": {
+    "guinea-pig-nestjs-monorepo": {
+      "type": "application",
+      "root": "apps/guinea-pig-nestjs-monorepo",
+      "entryFile": "main",
+      "sourceRoot": "apps/guinea-pig-nestjs-monorepo/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/guinea-pig-nestjs-monorepo/tsconfig.app.json"
+      }
+    },
+    "another-app": {
+      "type": "application",
+      "root": "apps/another-app",
+      "entryFile": "main",
+      "sourceRoot": "apps/another-app/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/another-app/tsconfig.app.json"
+      }
+    }
+  }
+}
