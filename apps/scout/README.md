@@ -18,7 +18,7 @@
 
 ### API
 ```js
-const Scout = require('scout');
+const Scout = require('@archsense/scout');
 
 const nestjsScout = new Scout({
   rootPath: '<path-to-root-folder>',
