@@ -2,6 +2,10 @@
 
 All notable changes to the "architecture-view-nestjs" extension will be documented in this file.
 
+## [1.0.0] - 2025-10-06
+
+- Remove from preview
+
 ## [0.7.0] - 2023-09-07
 
 - Migrate orakul-ui (webview) to Vite [#21](https://github.com/ArchSense/archsense-mono/pull/21)
